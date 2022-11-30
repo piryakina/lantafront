@@ -1,0 +1,30 @@
+#login{
+  font-size: 20px;
+  margin-left:30vw;
+  margin-top: 30vh;
+}
+
+input,label{
+  width:20vw;
+  margin-top:1%;
+}
+button{
+  font-size: 20px;
+  background-color: #162124;
+  width:20vw;
+  margin-top:15%;
+  --bs-btn-border-color: #162124;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color:#0D27D4 ;
+  --bs-btn-border-color: #0D27D4 ;
+
+}
+label{
+  color: #0D27D4;
+}
+input,button{
+  height: 4.5vh;
+}

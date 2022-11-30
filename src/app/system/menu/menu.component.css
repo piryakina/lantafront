@@ -1,0 +1,28 @@
+nav{
+  color: #1160D6;
+  font-family: Inter;
+
+  height: 100vh;
+  width: 20vw;
+  display: inline-flex;
+}
+a:hover{
+  text-decoration: underline;
+  text-underline: #0D27D4;
+}
+#analytic,#usp{
+  padding-left: 20%;
+}
+.nav-link:active, .nav-link:focus-within{
+  font-weight: bold;
+}
+button{
+  font-size: 20px;
+  background-color: #162124;
+  width:15vw;
+  margin-top:15%;
+  margin-left: 1.7vw;
+  --bs-btn-border-color: #162124;
+  position: absolute;
+  bottom: 1vh;
+}
