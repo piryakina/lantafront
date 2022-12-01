@@ -1,21 +1,28 @@
 <nav class="nav flex-column ms-4">
-  <a class="navbar-brand mt-5 " href="#">
+  <p class="navbar-brand mt-5 " href="#">
     <span class="navbar-brand m-5 h1 fw-bold fs-3">Ланта Сервис</span>
-  </a>
-  <a class="navbar-brand my-4" href="#">
-    <span class="navbar-brand m-5 h1 fw-bold fs-4">service partner</span>
-  </a>
-  <a class="nav-link px-5 fs-5" routerLink="/news">Новости</a>
-  <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>
-  <div *ngIf="role==='usp';then Usp else Analytic"></div>
-  <ng-template #Usp><a class="nav-link fs-5 px-5" routerLink="/usp">Взаиморасчёт</a></ng-template>
-  <ng-template #Analytic><a class="nav-link fs-5 px-5" routerLink="/analytic">Взаиморасчёт</a></ng-template>
-  <!--  <a class="nav-link fs-5">Взаиморасчёт</a>-->
-  <a class="nav-link fs-5" [hidden]="true" id="analytic" routerLink="/analytic">Аналитика</a>
-  <a class="nav-link fs-5" [hidden]="true" id="usp" routerLink="/usp">УСП</a>
-  <a class="nav-link  px-5 fs-5" routerLink="/archive">Архив</a>
+  </p>
+  <div class="navbar-brand my-4" href="#">
+    <div *ngIf="name!=='';then Name else Null"></div>
+    <ng-template #Name><span class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</span></ng-template>
+    <ng-template #Null><span class="navbar-brand m-5 h1 fw-bold fs-4"></span></ng-template>
+  </div>
+  <a class="nav-link px-5 fs-5" routerLink="/home">Новости</a>
+  <a class="nav-link px-5 fs-5" [hidden]="true" id="knowledge" routerLink="/knowledge">База знаний</a>
+  <div *ngIf="role==='usp';then Usp"></div>
+  <ng-template #Usp><a class="nav-link fs-5 px-5" id="finance" routerLink="/usp">Взаиморасчёт</a></ng-template>
+  <div *ngIf="role==='analytic';then Analytic"></div>
+  <ng-template #Analytic><a class="nav-link fs-5 px-5" id="finance2" routerLink="/analytic">Взаиморасчёт</a></ng-template>
+  <div *ngIf="role==='sp';then SP"></div>
+  <ng-template #SP><a class="nav-link fs-5 px-5" id="finance3" routerLink="/sp">Взаиморасчёт</a></ng-template>
+  <a class="nav-link fs-5 px-5" [hidden]="true" id="analytic" routerLink="/analytic">Аналитика</a>
+  <a class="nav-link fs-5 px-5" [hidden]="true" id="usp" routerLink="/usp">УСП</a>
+  <a class="nav-link  px-5 fs-5"  [hidden]="true" id="archive" routerLink="/archive">Архив</a>
   <a class="nav-link  px-5 fs-5" [hidden]="true" id="admin" routerLink="/admin">Администрирование</a>
-  <button type="submit" class="btn btn-primary mb-2" (click)="OnClick()">Выйти</button>
+<!--  <div *ngIf="auth===true;then LogOut"></div>-->
+<button id="logout"  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
+<!--  <div *ngIf="auth===false;then LogIn"></div>-->
+<button id="login" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>
 </nav>
 
 

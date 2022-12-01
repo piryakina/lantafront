@@ -10,9 +10,6 @@ a:hover{
   text-decoration: underline;
   text-underline: #0D27D4;
 }
-#analytic,#usp{
-  padding-left: 20%;
-}
 .nav-link:active, .nav-link:focus-within{
   font-weight: bold;
 }

@@ -1,0 +1,20 @@
+div{
+  width: 77%;
+}
+app-sp-page{
+  display: inline-flex;
+}
+app-menu{
+  float: left;
+}
+div{
+  border-left: 0.5vw solid #2A6879;
+  margin-left: 20.5vw;
+  width: 79.5%;
+  height: 100vh;
+  background-color: #C5DCFF;
+}
+
+app-sp{
+  margin-top: 20%;
+}

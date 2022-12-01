@@ -7,6 +7,7 @@
 input,label{
   width:20vw;
   margin-top:1%;
+  outline: none;
 }
 button{
   font-size: 20px;

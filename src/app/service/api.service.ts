@@ -24,7 +24,13 @@ export class ApiService {
     return this.httpClient.get<any>(this.apiDomen + `/logout`, {withCredentials: true});
   }
   getRole():Observable<any> {
-    return this.httpClient.get<any>(this.apiDomen+`/user`,{withCredentials: true})
+    return this.httpClient.get<any>(this.apiDomen+`/role`,{withCredentials: true})
+  }
+  uploadFileBilling(data:any, user:IUser):Observable<any>{
+    return this.httpClient.post(this.apiDomen+'/billings/upload',[data,user],{withCredentials:true})
+  }
+  uploadFileInvoice(data:any, user:IUser):Observable<any>{
+    return this.httpClient.post(this.apiDomen+'/billings/upload',[data,user],{withCredentials:true})
   }
   // //регистрация
   // signup(user: IUser): Observable<any> {

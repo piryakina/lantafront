@@ -6,12 +6,19 @@ import { AppComponent } from './app.component';
 import {MenuComponent} from "./system/menu/menu.component";
 import {LoginComponent} from "./system/login/login.component";
 import { NewsComponent } from './system/news/news.component';
-import { NewsPageComponent } from './system/pages/news-page/news-page.component';
 import { LoginPageComponent } from './system/pages/login-page/login-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ApiService} from "./service/api.service";
 import {FormsModule} from "@angular/forms";
-import { MenuPageComponent } from './system/pages/menu-page/menu-page.component';
+import { HomePageComponent } from './system/pages/home-page/home-page.component';
+import { SpPageComponent } from './system/pages/sp-page/sp-page.component';
+import { AnalyticPageComponent } from './system/pages/analytic-page/analytic-page.component';
+import { UspPageComponent } from './system/pages/usp-page/usp-page.component';
+import { SpComponent } from './system/sp/sp.component';
+import { UploaderComponent } from './system/uploader/uploader.component';
+import { AddNewsComponent } from './system/admin/add-news/add-news.component';
+import {AddUserComponent} from "./system/admin/add-user/add-user.component";
+
 
 @NgModule({
   declarations: [
@@ -19,9 +26,16 @@ import { MenuPageComponent } from './system/pages/menu-page/menu-page.component'
     MenuComponent,
     LoginComponent,
     NewsComponent,
-    NewsPageComponent,
+
     LoginPageComponent,
-    MenuPageComponent
+    HomePageComponent,
+    SpPageComponent,
+    AnalyticPageComponent,
+    UspPageComponent,
+    SpComponent,
+    UploaderComponent,
+    AddNewsComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

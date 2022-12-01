@@ -21,16 +21,10 @@ export class LoginComponent implements OnInit{
       login: this.login,
       password: this.password,
     };
-    // this.apiService.logout().subscribe((result)=>{
-    //     console.log("вы вышли")
-    //   },(error)=>{
-    //     console.log("errrrr")
-    //   }
-    // )
     this.apiService.login(user).subscribe((result) => {
       if (result.status === true) {
         console.log("success")
-        this.router.navigate(['/menu']);
+        this.router.navigate(['/home']);
       } else {
         alert('вы не авторизованы! введите правильные имя пользователя и пароль');
       }});
