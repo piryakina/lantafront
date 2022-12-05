@@ -17,7 +17,7 @@ export class ApiService {
   opt = {header: this.headers, withCredentials: true};
 
   //Логин в систему
-  login(user: IUser): Observable<any> {
+  login(user: IUser): (Observable<any>) {
     return this.httpClient.post<any>(this.apiDomen + `/login`, user, {withCredentials: true});
   }
   logout(): Observable<any> {

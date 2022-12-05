@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:"usp", component: UspPageComponent},
   {path:"analytic", component: AnalyticPageComponent},
   {path:"sp", component: SpPageComponent},
-  {path:"**", component: LoginPageComponent}
+  {path:"**", component: HomePageComponent}
 ];
 
 @NgModule({

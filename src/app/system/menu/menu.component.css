@@ -3,7 +3,7 @@ nav{
   font-family: Inter;
 
   height: 100vh;
-  width: 20vw;
+  width: 20%;
   display: inline-flex;
 }
 a:hover{
@@ -12,6 +12,9 @@ a:hover{
 }
 .nav-link:active, .nav-link:focus-within{
   font-weight: bold;
+}
+.nav-link{
+  height: 5%;
 }
 button{
   font-size: 20px;

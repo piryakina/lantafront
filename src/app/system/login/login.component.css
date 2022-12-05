@@ -1,4 +1,4 @@
-#login{
+#from_login{
   font-size: 20px;
   margin-left:30vw;
   margin-top: 30vh;
@@ -8,6 +8,7 @@ input,label{
   width:20vw;
   margin-top:1%;
   outline: none;
+
 }
 button{
   font-size: 20px;

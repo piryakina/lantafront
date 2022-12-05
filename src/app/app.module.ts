@@ -18,6 +18,8 @@ import { SpComponent } from './system/sp/sp.component';
 import { UploaderComponent } from './system/uploader/uploader.component';
 import { AddNewsComponent } from './system/admin/add-news/add-news.component';
 import {AddUserComponent} from "./system/admin/add-user/add-user.component";
+import {NgxWebstorageModule} from "ngx-webstorage";
+import { TableComponent } from './system/table/table.component';
 
 
 @NgModule({
@@ -35,13 +37,15 @@ import {AddUserComponent} from "./system/admin/add-user/add-user.component";
     SpComponent,
     UploaderComponent,
     AddNewsComponent,
-    AddUserComponent
+    AddUserComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

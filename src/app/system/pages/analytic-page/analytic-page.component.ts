@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./analytic-page.component.css']
 })
 export class AnalyticPageComponent {
-
+ name:string="Аналитика"
 }

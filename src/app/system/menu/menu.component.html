@@ -7,23 +7,49 @@
     <ng-template #Name><span class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</span></ng-template>
     <ng-template #Null><span class="navbar-brand m-5 h1 fw-bold fs-4"></span></ng-template>
   </div>
-  <a class="nav-link px-5 fs-5" routerLink="/home">Новости</a>
-  <a class="nav-link px-5 fs-5" [hidden]="true" id="knowledge" routerLink="/knowledge">База знаний</a>
-  <div *ngIf="role==='usp';then Usp"></div>
-  <ng-template #Usp><a class="nav-link fs-5 px-5" id="finance" routerLink="/usp">Взаиморасчёт</a></ng-template>
-  <div *ngIf="role==='analytic';then Analytic"></div>
-  <ng-template #Analytic><a class="nav-link fs-5 px-5" id="finance2" routerLink="/analytic">Взаиморасчёт</a></ng-template>
-  <div *ngIf="role==='sp';then SP"></div>
-  <ng-template #SP><a class="nav-link fs-5 px-5" id="finance3" routerLink="/sp">Взаиморасчёт</a></ng-template>
-  <a class="nav-link fs-5 px-5" [hidden]="true" id="analytic" routerLink="/analytic">Аналитика</a>
-  <a class="nav-link fs-5 px-5" [hidden]="true" id="usp" routerLink="/usp">УСП</a>
-  <a class="nav-link  px-5 fs-5"  [hidden]="true" id="archive" routerLink="/archive">Архив</a>
-  <a class="nav-link  px-5 fs-5" [hidden]="true" id="admin" routerLink="/admin">Администрирование</a>
-<!--  <div *ngIf="auth===true;then LogOut"></div>-->
-<button id="logout"  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
-<!--  <div *ngIf="auth===false;then LogIn"></div>-->
-<button id="login" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>
-</nav>
+  <div *ngIf="role=='admin';then Admin"></div>
+  <ng-template #Admin>
+    <a class="nav-link px-5 fs-5" routerLink="/home">Новости</a>
+    <a class="nav-link px-5 fs-5"  routerLink="/knowledge">База знаний</a>
+    <a class="nav-link px-5 fs-5"  id="analytic" routerLink="/analytic">Аналитика</a>
+    <a class="nav-link px-5 fs-5"  id="usp" routerLink="/usp">УСП</a>
+    <a class="nav-link  px-5 fs-5"  id="archive" routerLink="/archive">Архив</a>
+    <a class="nav-link  px-5 fs-5"  id="admin" routerLink="/admin">Администрирование</a>
+    <button  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
+<!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
+  </ng-template>
+  <div *ngIf="role=='usp';then Usp"></div>
+  <ng-template #Usp>
+    <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
+    <a class="nav-link px-5 fs-5" routerLink="/usp">Взаиморасчёт</a>
+    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>
+    <button   type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
+<!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
+  </ng-template>
+  <div *ngIf="role=='analytic';then Analytic"></div>
+  <ng-template #Analytic>
+    <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
+    <a class="nav-link px-5 fs-5" routerLink="/analytic">Взаиморасчёт</a>
+    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>
+
+    <button type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
+<!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
+  </ng-template>
+  <div *ngIf="role=='sp';then Sp"></div>
+  <ng-template #Sp>
+    <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
+     <a class="nav-link px-5 fs-5" routerLink="/sp">Взаиморасчёт</a>
+    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>
+    <button  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
+    <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
+  </ng-template>
+  <div *ngIf="role===null;then None"></div>
+  <ng-template #None>
+    <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
+<!--    <button [hidden]="true"  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>-->
+    <button type="submit" id="login" class="btn btn-primary mb-2" (click)="Login()">Войти</button>
+  </ng-template>
+ </nav>
 
 
 

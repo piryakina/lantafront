@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {Router} from "@angular/router";
 import {IUser} from "../../entities/IUser";
+import {LocalStorageService} from "ngx-webstorage";
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,13 @@ import {IUser} from "../../entities/IUser";
 export class LoginComponent implements OnInit{
   login: string = ""
   password: string = ""
-  constructor(private apiService:ApiService, private router:Router) {
+  constructor(private apiService:ApiService, private router:Router, private storage:LocalStorageService) {
   }
   ngOnInit(): void {
+    if (this.storage.retrieve("id")!==null){
+      this.router.navigate(["/"])
+    }
+
 
   }
   OnClick(): void {
@@ -24,7 +29,10 @@ export class LoginComponent implements OnInit{
     this.apiService.login(user).subscribe((result) => {
       if (result.status === true) {
         console.log("success")
-        this.router.navigate(['/home']);
+        this.storage.store("id",result.id)
+        this.storage.store("role", result.role)
+        this.storage.store("name",result.name)
+        this.router.navigate(['/']);
       } else {
         alert('вы не авторизованы! введите правильные имя пользователя и пароль');
       }});

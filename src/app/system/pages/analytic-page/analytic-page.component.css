@@ -1,0 +1,18 @@
+#a-table{
+  border-left: 0.5vw solid #2A6879;
+  margin-left: 20.5vw;
+  width: 79.5%;
+  height: 100vh;
+  background-color: #C5DCFF;
+
+}
+app-analytic-page{
+  display: inline-flex;
+}
+app-menu{
+  float: left;
+}
+.navbar-brand{
+  color: #1160D6;
+  font-weight: bold;
+}
