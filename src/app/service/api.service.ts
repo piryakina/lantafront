@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {IUser} from "../entities/IUser";
+import {IPeriod} from "../entities/IPeriod";
 
 
 @Injectable({
@@ -31,6 +32,15 @@ export class ApiService {
   }
   uploadFileInvoice(data:any, user:IUser):Observable<any>{
     return this.httpClient.post(this.apiDomen+'/billings/upload',[data,user],{withCredentials:true})
+  }
+  getRoles():Observable<any>{
+    return this.httpClient.get(this.apiDomen+`/roles`,{withCredentials:true})
+  }
+  addUser(user:IUser):Observable<any>{
+    return this.httpClient.post<any>(this.apiDomen+`/admin/add-user`,user,{withCredentials:true})
+  }
+  addPeriod(p:IPeriod):Observable<any>{
+    return this.httpClient.post<any>(this.apiDomen+`/admin/add-period`,p,{withCredentials:true})
   }
   // //регистрация
   // signup(user: IUser): Observable<any> {

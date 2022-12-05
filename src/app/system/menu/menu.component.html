@@ -7,7 +7,7 @@
     <ng-template #Name><span class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</span></ng-template>
     <ng-template #Null><span class="navbar-brand m-5 h1 fw-bold fs-4"></span></ng-template>
   </div>
-  <div *ngIf="role=='admin';then Admin"></div>
+  <div *ngIf="role=='администратор';then Admin"></div>
   <ng-template #Admin>
     <a class="nav-link px-5 fs-5" routerLink="/home">Новости</a>
     <a class="nav-link px-5 fs-5"  routerLink="/knowledge">База знаний</a>
@@ -18,7 +18,7 @@
     <button  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
 <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
   </ng-template>
-  <div *ngIf="role=='usp';then Usp"></div>
+  <div *ngIf="role==='усп';then Usp"></div>
   <ng-template #Usp>
     <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
     <a class="nav-link px-5 fs-5" routerLink="/usp">Взаиморасчёт</a>
@@ -26,7 +26,7 @@
     <button   type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
 <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
   </ng-template>
-  <div *ngIf="role=='analytic';then Analytic"></div>
+  <div *ngIf="role==='аналитик';then Analytic"></div>
   <ng-template #Analytic>
     <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
     <a class="nav-link px-5 fs-5" routerLink="/analytic">Взаиморасчёт</a>
@@ -35,7 +35,7 @@
     <button type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
 <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
   </ng-template>
-  <div *ngIf="role=='sp';then Sp"></div>
+  <div *ngIf="role==='сп';then Sp"></div>
   <ng-template #Sp>
     <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
      <a class="nav-link px-5 fs-5" routerLink="/sp">Взаиморасчёт</a>

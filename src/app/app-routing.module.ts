@@ -7,6 +7,9 @@ import {HomePageComponent} from "./system/pages/home-page/home-page.component";
 import {SpPageComponent} from "./system/pages/sp-page/sp-page.component";
 import {AnalyticPageComponent} from "./system/pages/analytic-page/analytic-page.component";
 import {UspPageComponent} from "./system/pages/usp-page/usp-page.component";
+import {AdminPageComponent} from "./system/pages/admin-page/admin-page.component";
+import {AddUserComponent} from "./system/admin/add-user/add-user.component";
+import {AddPeriodComponent} from "./system/admin/add-period/add-period.component";
 
 const routes: Routes = [
   {path:"login", component: LoginPageComponent},
@@ -14,6 +17,9 @@ const routes: Routes = [
   {path:"usp", component: UspPageComponent},
   {path:"analytic", component: AnalyticPageComponent},
   {path:"sp", component: SpPageComponent},
+  {path:"admin", component: AdminPageComponent},
+  {path:"admin/add-user", component: AddUserComponent},
+  {path:"admin/add-period", component: AddPeriodComponent},
   {path:"**", component: HomePageComponent}
 ];
 

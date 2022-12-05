@@ -20,6 +20,8 @@ import { AddNewsComponent } from './system/admin/add-news/add-news.component';
 import {AddUserComponent} from "./system/admin/add-user/add-user.component";
 import {NgxWebstorageModule} from "ngx-webstorage";
 import { TableComponent } from './system/table/table.component';
+import { AdminPageComponent } from './system/pages/admin-page/admin-page.component';
+import { AddPeriodComponent } from './system/admin/add-period/add-period.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { TableComponent } from './system/table/table.component';
     UploaderComponent,
     AddNewsComponent,
     AddUserComponent,
-    TableComponent
+    TableComponent,
+    AdminPageComponent,
+    AddPeriodComponent
   ],
   imports: [
     BrowserModule,

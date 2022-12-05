@@ -1,0 +1,20 @@
+<app-menu></app-menu>
+<div class="ct">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Название отчётного периода</label>
+      <input [(ngModel)]="name" name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Декабрь 2022">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput2">Начало отчётного периода</label>
+      <input [(ngModel)]="dateFrom" name="date1" type="text" class="form-control" id="exampleFormControlInput2" placeholder="2022-12-14">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput3">Конец отчётного периода</label>
+      <input [(ngModel)]="dateTo" name="date2" type="text" class="form-control" id="exampleFormControlInput3" placeholder="2023-01-15">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary mb-2" (click)="AddPeriod()">Добавить</button>
+    </div>
+  </form>
+</div>

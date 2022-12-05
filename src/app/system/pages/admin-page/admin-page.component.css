@@ -1,0 +1,19 @@
+div{
+  border-left: 0.5vw solid #2A6879;
+  margin-left: 20.5vw;
+  width: 79.5vw;
+  height: 100vh;
+  background-color: #C5DCFF;
+}
+app-menu{
+  float: left;
+}
+a{
+  color: #0D27D4;
+
+}
+a:hover{
+  text-decoration: underline;
+  text-underline: #0D27D4;
+  color: #0D27D4;
+}
