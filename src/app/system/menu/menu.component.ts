@@ -62,9 +62,8 @@ export class MenuComponent implements OnInit {
     if (btn2 !== null) {
       btn2.hidden = true
     }
-    this.router.navigate(["/"])
-    delay(300)
     window.location.reload()
+    window.location.href="http://localhost:4200"
   }
 
   Login() {

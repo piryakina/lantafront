@@ -1,9 +1,10 @@
-<div>
+<div class="upload">
   <form id="form" method="post" enctype="multipart/form-data">
-    <input id="uploader" type="file" multiple name="file" (change)="showFiles($event)" /><br>
-    <input (click)="uploadFile($event)" type="submit" value="Отправить">
+    <label for="uploader" class="form-label"></label>
+    <input class="form-control" id="uploader" type="file" multiple name="file" (change)="showFiles($event)" /><br>
+    <input  class="form-control" (click)="uploadFile($event)" type="submit" value="Отправить">
   </form>
-  <div id="selectedFiles" *ngFor="let file of files">
+  <div class="names" id="selectedFiles" *ngFor="let file of files">
     <p>{{file.name}}</p>
   </div>
 </div>

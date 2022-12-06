@@ -1,20 +1,24 @@
 div{
   width: 77%;
 }
-app-sp-page{
-  display: inline-flex;
-}
+/*app-sp-page{*/
+/*  display: inline-flex;*/
+/*}*/
 app-menu{
   float: left;
 }
-div{
+
+.right{
   border-left: 0.5vw solid #2A6879;
   margin-left: 20.5vw;
   width: 79.5%;
   height: 100vh;
   background-color: #C5DCFF;
 }
-
+.navbar-brand{
+  color: #1160D6;
+  font-weight: bold;
+}
 app-sp{
-  margin-top: 20%;
+  width: 80%;
 }

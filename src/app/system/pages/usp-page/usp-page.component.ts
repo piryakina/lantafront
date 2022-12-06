@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./usp-page.component.css']
 })
 export class UspPageComponent {
-
+  name:string="УСП"
 }

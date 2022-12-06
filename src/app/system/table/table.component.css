@@ -5,7 +5,9 @@ table {
   text-align: center;
   width:  80%;
   background-color: white;
-  margin: auto;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 th, td:first-child {
 
@@ -20,3 +22,6 @@ th,td,tr,table {
 /*th:first-child, td:first-child {*/
 /*  text-align: left;*/
 /*}*/
+td{
+  height: 3%;
+}

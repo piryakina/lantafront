@@ -3,3 +3,33 @@
 
 /*  width: 20%;*/
 /*}*/
+table {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  border-collapse: collapse;
+  text-align: center;
+  width:  80%;
+  background-color: white;
+  margin-right: 10%;
+}
+#sp-table{
+  width: 60%;
+  float: right;
+}
+app-uploader{
+  width: 40%;
+  margin-top:1%;
+
+}
+label{
+  /*margin-top: 2%;*/
+  color: #1160D6;
+  text-align: left;
+}
+#sec{
+  margin-top: 50%;
+}
+#upload-label{
+  float: left;
+  padding-left: 1%;
+}

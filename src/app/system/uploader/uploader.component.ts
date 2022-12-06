@@ -8,26 +8,28 @@ import {LocalStorageService} from "ngx-webstorage";
   templateUrl: './uploader.component.html',
   styleUrls: ['./uploader.component.css']
 })
-export class UploaderComponent implements OnInit{
-  constructor(private apiService:ApiService, private router:Router, private storage: LocalStorageService) {
+export class UploaderComponent implements OnInit {
+  constructor(private apiService: ApiService, private router: Router, private storage: LocalStorageService) {
   }
+
   files: Array<File> = []
-  ngOnInit(){
+
+  ngOnInit() {
 
   }
 
-  showFiles(e: Event){
+  showFiles(e: Event) {
     const inputFiles = (<HTMLInputElement>e.target).files as FileList
     this.files = []
-    for (let i = 0; i < inputFiles.length; i++){
+    for (let i = 0; i < inputFiles.length; i++) {
       const file = inputFiles[i]
       this.files.push(file)
     }
-    console.log(this.files)
+    // console.log(this.files)
   }
 
-  uploadFile(event:any): void {
-    if (this.files.length === 0){
+  uploadFile(event: any): void {
+    if (this.files.length === 0) {
       return
     }
     const target = document.getElementById("uploader")
@@ -38,22 +40,26 @@ export class UploaderComponent implements OnInit{
 
     //console.log(selectedFile)
 
-    let href = this.router.url
-    console.log(href)
+    // let href = this.router.url
+    // console.log(href)
+    for (let i = 0; i < this.files.length; i++) {
+      let data = new FormData()
 
-    let data = new FormData()
+      data.append("id", String(this.storage.retrieve("id")))
+      // data.append("status", "1")
+      data.append("file", this.files[i], this.files[i].name)
 
-    data.append("id", String(this.storage.retrieve("id")))
-    data.append("status", "1")
-    data.append("file", this.files[0], this.files[0].name)
+      // console.log(data.getAll("file"))
 
-    // console.log(data.getAll("file"))
+      this.apiService.uploadFileBilling(data).subscribe((res) => {
+        console.log(res)
+        alert("файлы успешно загружены")
+        window.location.href="http://localhost:4200/sp"
+      }, (err) => {
+        console.error(err)
+      })
+    }
 
-    this.apiService.uploadFileBilling(data).subscribe((res)=>{
-      console.log(res)
-    },(err)=>{
-      console.error(err)
-    })
 
     // if (href.includes("billing")){
     //   console.log(href)
@@ -80,7 +86,6 @@ export class UploaderComponent implements OnInit{
     //     this.router.navigate(['/home']);
     //   })
     // }
-
 
 
     // console.log("uploadddd")

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {IUser} from "../entities/IUser";
 import {IPeriod} from "../entities/IPeriod";
 
@@ -43,10 +43,14 @@ export class ApiService {
     return this.httpClient.post<any>(this.apiDomen+`/admin/add-period`,p,{withCredentials:true})
   }
 
-  getQualityAndProcess():Observable<any>{
-    return this.httpClient.get(this.apiDomen+'/sp-period', {withCredentials: true})
+  getQualityAndProcess(login:string):Observable<any>{
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("login",login);
+    return this.httpClient.get(this.apiDomen+'/sp-period', {params: queryParams, withCredentials: true})
   }
-
+  getDataPeriodNow():Observable<any>{
+    return this.httpClient.get(this.apiDomen+`/data-period`,{withCredentials:true})
+  }
   // //регистрация
   // signup(user: IUser): Observable<any> {
   //   return this.httpClient.post<IAnswer>(this.apiDomen + '/sign-up', user, {withCredentials: true});

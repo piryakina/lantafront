@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         console.log("success")
         console.log(result)
         this.storage.store("id", result.id)
+        this.storage.store("login", this.login)
         this.storage.store("role", result.role)
         this.storage.store("name", result.name)
         this.router.navigate(['/']);
