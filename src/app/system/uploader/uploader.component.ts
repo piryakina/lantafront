@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {Router} from "@angular/router";
-import * as events from "events";
+import {LocalStorageService} from "ngx-webstorage";
 
 @Component({
   selector: 'app-uploader',
@@ -9,32 +9,52 @@ import * as events from "events";
   styleUrls: ['./uploader.component.css']
 })
 export class UploaderComponent implements OnInit{
-  constructor(private apiService:ApiService, private router:Router) {
+  constructor(private apiService:ApiService, private router:Router, private storage: LocalStorageService) {
   }
-  filesNames: Array<File> = []
+  files: Array<File> = []
   ngOnInit(){
 
   }
 
   showFiles(e: Event){
     const inputFiles = (<HTMLInputElement>e.target).files as FileList
-    this.filesNames = []
+    this.files = []
     for (let i = 0; i < inputFiles.length; i++){
       const file = inputFiles[i]
-      this.filesNames.push(file)
+      this.files.push(file)
     }
-    console.log(this.filesNames)
+    console.log(this.files)
   }
 
   uploadFile(event:any): void {
+    if (this.files.length === 0){
+      return
+    }
     const target = document.getElementById("uploader")
-    let data = new FormData();
+    //let data = new FormData(document.getElementById("form") as HTMLFormElement);
     // @ts-ignore
-    let selectedFile = target.files[0]
-    data.append('file', selectedFile, selectedFile.name);
+    //let selectedFile = target.files[0]
+    //data.append('file', selectedFile, selectedFile.name);
+
+    //console.log(selectedFile)
 
     let href = this.router.url
     console.log(href)
+
+    let data = new FormData()
+
+    data.append("id", String(this.storage.retrieve("id")))
+    data.append("status", "1")
+    data.append("file", this.files[0], this.files[0].name)
+
+    // console.log(data.getAll("file"))
+
+    this.apiService.uploadFileBilling(data).subscribe((res)=>{
+      console.log(res)
+    },(err)=>{
+      console.error(err)
+    })
+
     // if (href.includes("billing")){
     //   console.log(href)
     //   // @ts-ignore

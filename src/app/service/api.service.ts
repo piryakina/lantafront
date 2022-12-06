@@ -27,10 +27,10 @@ export class ApiService {
   getRole():Observable<any> {
     return this.httpClient.get<any>(this.apiDomen+`/role`,{withCredentials: true})
   }
-  uploadFileBilling(data:any, user:IUser):Observable<any>{
-    return this.httpClient.post(this.apiDomen+'/billings/upload',[data,user],{withCredentials:true})
+  uploadFileBilling(data:any):Observable<any>{
+    return this.httpClient.post(this.apiDomen+'/billings/upload',data,{withCredentials:true})
   }
-  uploadFileInvoice(data:any, user:IUser):Observable<any>{
+  uploadFileInvoice(data:any, user: IUser):Observable<any>{
     return this.httpClient.post(this.apiDomen+'/billings/upload',[data,user],{withCredentials:true})
   }
   getRoles():Observable<any>{
@@ -42,6 +42,11 @@ export class ApiService {
   addPeriod(p:IPeriod):Observable<any>{
     return this.httpClient.post<any>(this.apiDomen+`/admin/add-period`,p,{withCredentials:true})
   }
+
+  getQualityAndProcess():Observable<any>{
+    return this.httpClient.get(this.apiDomen+'/sp-period', {withCredentials: true})
+  }
+
   // //регистрация
   // signup(user: IUser): Observable<any> {
   //   return this.httpClient.post<IAnswer>(this.apiDomen + '/sign-up', user, {withCredentials: true});
