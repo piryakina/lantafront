@@ -13,8 +13,26 @@ export class UploaderComponent implements OnInit {
   }
 
   files: Array<File> = []
+  url: string = ""
 
   ngOnInit() {
+    // let el= document.getElementById("billing")
+    // if (el!==null){
+    //   // console.log("yes")
+    //   this.id="billing"
+    // }
+    // let el1= document.getElementById("invoice")
+    // if (el1!==null){
+    //   // console.log("yes")
+    //   this.id="invoice"
+    // }
+    // let el2= document.getElementById("attachments")
+    // if (el2!==null){
+    //   // console.log("yes")
+    //   this.id="attachments"
+    // } else{
+    //   // console.log("no")
+    // }
 
   }
 
@@ -29,9 +47,6 @@ export class UploaderComponent implements OnInit {
   }
 
   uploadFile(event: any): void {
-    if (this.files.length === 0) {
-      return
-    }
     const target = document.getElementById("uploader")
     //let data = new FormData(document.getElementById("form") as HTMLFormElement);
     // @ts-ignore
@@ -42,22 +57,51 @@ export class UploaderComponent implements OnInit {
 
     // let href = this.router.url
     // console.log(href)
+    console.log(this.router.url)
+    this.url=this.router.url
     for (let i = 0; i < this.files.length; i++) {
       let data = new FormData()
 
       data.append("id", String(this.storage.retrieve("id")))
+      if (this.url === "/admin/add-news") {
+        data.append("id_news", this.storage.retrieve("newsId"))
+      }
       // data.append("status", "1")
       data.append("file", this.files[i], this.files[i].name)
+      if (this.url === "/sp/billing") {
+
+        this.apiService.uploadFileBilling(data).subscribe((res) => {
+          console.log(res)
+          alert("файлы успешно загружены")
+          window.location.href = "http://localhost:4200/sp"
+        }, (err) => {
+          console.error(err)
+        })
+      } else if (this.url === "/sp/invoice") {
+        this.apiService.uploadFileInvoice(data).subscribe((res) => {
+          console.log(res)
+          alert("файлы успешно загружены")
+          window.location.href = "http://localhost:4200/sp"
+        }, (err) => {
+          console.error(err)
+        })
+
+      } else if (this.url === "/admin/add-news"){
+        this.apiService.uploadFileAttachment(data).subscribe((res)=>{
+          console.log(res)
+          alert("файлы успешно загружены")
+          window.location.href = "http://localhost:4200/admin"
+        })
+      }
+
+        if (this.files.length === 0) {
+          return
+        }
+
 
       // console.log(data.getAll("file"))
 
-      this.apiService.uploadFileBilling(data).subscribe((res) => {
-        console.log(res)
-        alert("файлы успешно загружены")
-        window.location.href="http://localhost:4200/sp"
-      }, (err) => {
-        console.error(err)
-      })
+
     }
 
 

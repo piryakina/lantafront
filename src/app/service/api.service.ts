@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {IUser} from "../entities/IUser";
 import {IPeriod} from "../entities/IPeriod";
+import {INews} from "../entities/INews";
 
 
 @Injectable({
@@ -30,8 +31,11 @@ export class ApiService {
   uploadFileBilling(data:any):Observable<any>{
     return this.httpClient.post(this.apiDomen+'/billings/upload',data,{withCredentials:true})
   }
-  uploadFileInvoice(data:any, user: IUser):Observable<any>{
-    return this.httpClient.post(this.apiDomen+'/billings/upload',[data,user],{withCredentials:true})
+  uploadFileInvoice(data:any):Observable<any>{
+    return this.httpClient.post(this.apiDomen+'/invoice/upload',data,{withCredentials:true})
+  }
+  uploadFileAttachment(data:any):Observable<any>{
+    return this.httpClient.post(this.apiDomen+'/attachment/upload',data,{withCredentials:true})
   }
   getRoles():Observable<any>{
     return this.httpClient.get(this.apiDomen+`/roles`,{withCredentials:true})
@@ -50,6 +54,12 @@ export class ApiService {
   }
   getDataPeriodNow():Observable<any>{
     return this.httpClient.get(this.apiDomen+`/data-period`,{withCredentials:true})
+  }
+  getStatuses():Observable<any>{
+    return this.httpClient.get(this.apiDomen+`/status`,{withCredentials:true})
+  }
+  addNews(data:INews):Observable<any>{
+    return this.httpClient.post(this.apiDomen+`/admin/add-news`,data,{withCredentials:true})
   }
   // //регистрация
   // signup(user: IUser): Observable<any> {

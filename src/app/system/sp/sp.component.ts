@@ -13,7 +13,20 @@ export class SpComponent  implements  OnInit {
   constructor(private router: Router, private storage: LocalStorageService, private apiService:ApiService) {
   }
   files:IFile[] =[]
+  status:string[]=[]
+  url:string=""
   ngOnInit(): void {
+    this.url=this.router.url
+    console.log(this.url)
+    this.apiService.getStatuses().subscribe((res)=>{
+      console.log(res)
+      for (let i=0;i<res.length;i++){
+        this.status.push(res[i].status_name)
+      }
+      console.log(this.status)
+    },(err)=>{
+      console.log(err)
+    })
     this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res)=>{
       console.log(res)
       for (let i=0;i<res.billing.length;i++){
@@ -23,11 +36,28 @@ export class SpComponent  implements  OnInit {
         temp.status=res.billing[i].status
         temp.date=res.billing[i].date
         this.files.push(temp)
-      }
+        // console.log(res.billing[i].status)
 
+       }
+      // this.files.sort(compare())
     }, (err)=>{
       console.error(err)
     })
+    // for (let i=0;i<this.files.length;i++){
+    //   console.log(this.files[i].status)
+    //   if (this.files[i].status===this.status[1]){
+    //     console.log(true)
+    //   }
+    // }
+  }
+  compare( object1: IFile, object2:IFile){
+    if (object1!==undefined && object2!==undefined &&object1.status!==undefined && object2.status!==undefined){
+      if (object1.status < object2.status)
+        return -1;
+      if (object1.status > object2.status)
+        return 1;
+    }
+    return 0;
   }
 }
 

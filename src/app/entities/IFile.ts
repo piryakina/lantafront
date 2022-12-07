@@ -13,3 +13,7 @@ export interface IRow{
   period?:string,
   date?:string
 }
+export interface IStatus{
+  id?:number,
+  status_name?:string
+}

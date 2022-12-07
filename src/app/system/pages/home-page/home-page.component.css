@@ -4,6 +4,10 @@ app-news-page{
 app-news,app-menu{
   float: left;
 }
+app-menu{
+  position: fixed;
+  left: 0;
+}
 
 div{
   border-left: 0.5vw solid #2A6879;

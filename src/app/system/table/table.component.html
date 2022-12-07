@@ -15,10 +15,12 @@
       <th scope="row">{{item.sp}}</th>
       <td>{{item.period}}</td>
       <td>{{item.date}}</td>
-      <td>{{item.status}}</td>
+<!--      <td>{{item.status}}</td>-->
+      <div *ngIf="item.status"></div>
+      <td></td>
       <td>{{item.filename}}</td>
       <td>
-<!--        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Введите замечания"></textarea>-->
+        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Введите замечания"></textarea>
       </td>
     </tr>
 <!--    <tr>-->

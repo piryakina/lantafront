@@ -8,28 +8,51 @@ table {
   font-size: 18px;
   border-collapse: collapse;
   text-align: center;
-  width:  80%;
+  width:  100%;
   background-color: white;
-  margin-right: 10%;
+  /*margin-right: 10%;*/
+
 }
 #sp-table{
-  width: 60%;
+  width: 70%;
   float: right;
+  margin-top: 7%;
+  padding-left: 3%;
 }
 app-uploader{
-  width: 40%;
+  width: 39%;
   margin-top:1%;
 
 }
-label{
-  /*margin-top: 2%;*/
-  color: #1160D6;
-  text-align: left;
-}
-#sec{
-  margin-top: 50%;
-}
-#upload-label{
+/*label{*/
+/*  !*margin-top: 2%;*!*/
+/*  color: #1160D6;*/
+/*  text-align: left;*/
+/*}*/
+.upload-label{
   float: left;
   padding-left: 1%;
+  padding-top: 7%;
+}
+
+.label{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #0D27D4;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline #0D27D4;
+
+}
+app-menu{
+  position: fixed;
+  left: 0;
+}
+.progress{
+  margin-top:2%;
+  margin-left:auto;
+  margin-right:auto;
 }

@@ -4,9 +4,12 @@ form{
   margin-top: 6%;
   margin-left: 10%;
 }
-app-menu {
+app-menu{
+  position: fixed;
+  left: 0;
   float: left;
 }
+
 div,label{
   padding: 1%;
 }
