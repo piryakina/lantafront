@@ -11,11 +11,10 @@
 <!--    <app-uploader id="invoice"></app-uploader>-->
 <!--  </div>-->
 <!--</div>-->
-<div class="progress w-100">
+<div class="progress">
   <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 <div class="upload-label">
-
   <div *ngIf="url==='/sp/billing'" class="first">
     <label class="label fs-4 fw-bold px-2">Загрузить биллинги</label>
     <app-uploader id="billing1"></app-uploader>
@@ -51,14 +50,30 @@
       <th scope="row">{{item.filename}}</th>
       <td>{{item.period}}</td>
       <td>{{item.date}}</td>
-      <div *ngIf="item.status===status[1];then Bold else None"></div>
-      <ng-template #Bold><td class="fw-bold">{{item.status}}</td></ng-template>
+<!--      <div *ngIf="item.status===status[1];then Bold"></div>-->
+<!--      <ng-template #Bold><td class="fw-bold">{{item.status}}</td></ng-template>-->
 <!--      <div *ngIf="item.status===status[1];then None"></div>-->
-      <ng-template #None><td>{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[0];then Bold0"></div>
+      <ng-template #Bold0><td class="text-info">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[1];then Bold"></div>
+      <ng-template #Bold><td class="fw-bold text-danger">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[2];then Bold2"></div>
+      <ng-template #Bold2><td class="fw-bold text-warning">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[3];then Bold3"></div>
+      <ng-template #Bold3><td class="fw-bold text-success">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[4];then Bold4"></div>
+      <ng-template #Bold4><td class="fw-bold text-success">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[5];then Bold5"></div>
+      <ng-template #Bold5><td class="fw-bold text-success">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[6];then Bold6"></div>
+      <ng-template #Bold6><td class="fw-bold text-success">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[8];then Bold8"></div>
+      <ng-template #Bold8><td class="fw-bold text-success">{{item.status}}</td></ng-template>
+      <div *ngIf="item.status===status[9];then Bold9"></div>
+      <ng-template #Bold9><td class="fw-bold text-success">{{item.status}}</td></ng-template>
+<!--      <ng-template #None><td>{{item.status}}</td></ng-template>-->
       <td>{{item.comm}}</td>
-
     </tr>
-
     </tbody>
   </table>
 </div>

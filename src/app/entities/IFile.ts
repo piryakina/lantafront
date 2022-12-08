@@ -7,13 +7,20 @@ export interface IFile{
   date?:string
 }
 export interface IRow{
+  id?:number,
   sp?:string,
   filename?:string,
   status?:string,
   period?:string,
+  idFile?:number,
   date?:string
+  comment?:string
 }
 export interface IStatus{
   id?:number,
   status_name?:string
+}
+export interface IComment{
+  id?:number,
+  comments?:string
 }

@@ -1,43 +1,62 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Название СП</th>
+    <th scope="col">Период</th>
+    <th scope="col">Дата</th>
+    <th scope="col">Статус</th>
+    <th scope="col">Файл</th>
+    <th scope="col">Комментарий</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of file;let i=index">
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">Название СП</th>
-      <th scope="col">Период</th>
-      <th scope="col">Дата</th>
-      <th scope="col">Статус</th>
-      <th scope="col">Файл</th>
-      <th scope="col">Комментарий</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of file">
-      <th scope="row">{{item.sp}}</th>
-      <td>{{item.period}}</td>
-      <td>{{item.date}}</td>
-<!--      <td>{{item.status}}</td>-->
-      <div *ngIf="item.status"></div>
-      <td></td>
-      <td>{{item.filename}}</td>
-      <td>
-        <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Введите замечания"></textarea>
-      </td>
-    </tr>
-<!--    <tr>-->
-<!--      <th scope="row">2</th>-->
-<!--      <td>Jacob</td>-->
-<!--      <td>Thornton</td>-->
-<!--      <td>@fat</td>-->
-<!--      <td>Thornton</td>-->
-<!--      <td>@fat</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <th scope="row">3</th>-->
-<!--      <td>Larry</td>-->
-<!--      <td>the Bird</td>-->
-<!--      <td>@twitter</td>-->
-<!--      <td>Thornton</td>-->
-<!--      <td>@fat</td>-->
-<!--    </tr>-->
-    </tbody>
-  </table>
+    <th scope="row" >{{item.sp}}</th>
+    <td>{{item.period}}</td>
+    <td>{{item.date}}</td>
+    <!--    <td>{{item.status}}</td>-->
+    <td>
+      <div *ngIf="url==='/analytic';then An"></div>
+      <ng-template #An>
+        <select (change)="SetStatusNow(item.status,i)" [(ngModel)]="item.status" >
+          <ng-container *ngFor="let a of analytic">
+            <option  [selected]="a.status_name===item.status">{{a.status_name}}</option>
+<!--            <option *ngIf="a.status_name!==item.status">{{a.status_name}}</option>-->
+          </ng-container>
+
+        </select>
+      </ng-template>
+      <div *ngIf="url==='/usp';then Usp"></div>
+      <ng-template #Usp>
+        <select [(ngModel)]="item.status" (change)="SetStatusNow(item.status,i)">
+          <ng-container *ngFor="let a of usp">
+            <option [selected]="a.status_name===item.status">{{a.status_name}}</option>
+
+          </ng-container>
+        </select>
+      </ng-template>
+    </td>
+    <td>{{item.filename}}</td>
+    <td>
+      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)" placeholder="Введите замечания"></textarea>
+    </td>
+  </tr>
+  <!--    <tr>-->
+  <!--      <th scope="row">2</th>-->
+  <!--      <td>Jacob</td>-->
+  <!--      <td>Thornton</td>-->
+  <!--      <td>@fat</td>-->
+  <!--      <td>Thornton</td>-->
+  <!--      <td>@fat</td>-->
+  <!--    </tr>-->
+  <!--    <tr>-->
+  <!--      <th scope="row">3</th>-->
+  <!--      <td>Larry</td>-->
+  <!--      <td>the Bird</td>-->
+  <!--      <td>@twitter</td>-->
+  <!--      <td>Thornton</td>-->
+  <!--      <td>@fat</td>-->
+  <!--    </tr>-->
+  </tbody>
+</table>

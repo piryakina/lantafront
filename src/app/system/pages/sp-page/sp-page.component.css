@@ -7,16 +7,15 @@ div{
 app-menu{
   float: left;
 }
-
-.right{
+#a-table{
   border-left: 0.5vw solid #2A6879;
   margin-left: 20.5%;
-  width: 100%;
+  width: 79.5%;
   height: 100%;
   min-height: 100vh;
-  min-width: 79.5%;
+  padding-bottom: 3%;
   background-color: #C5DCFF;
-  display: flex;
+
 }
 .navbar-brand{
   color: #1160D6;

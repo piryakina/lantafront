@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, queue} from "rxjs";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {IUser} from "../entities/IUser";
 import {IPeriod} from "../entities/IPeriod";
 import {INews} from "../entities/INews";
+import {IComment} from "../entities/IFile";
+import {query} from "@angular/animations";
 
 
 @Injectable({
@@ -58,8 +60,17 @@ export class ApiService {
   getStatuses():Observable<any>{
     return this.httpClient.get(this.apiDomen+`/status`,{withCredentials:true})
   }
+  setStatus(idFile:number, idStatus:number):Observable<any>{
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("statusId",idStatus);
+    queryParams = queryParams.append("fileId",idFile);
+    return this.httpClient.get(this.apiDomen+`/set-status`,{params:queryParams, withCredentials:true})
+  }
   addNews(data:INews):Observable<any>{
     return this.httpClient.post(this.apiDomen+`/admin/add-news`,data,{withCredentials:true})
+  }
+  setComment(body:IComment):Observable<any>{
+    return this.httpClient.post(this.apiDomen+`/set-comment`,body,{withCredentials:true})
   }
   // //регистрация
   // signup(user: IUser): Observable<any> {

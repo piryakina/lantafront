@@ -17,18 +17,18 @@ export class SpComponent  implements  OnInit {
   url:string=""
   ngOnInit(): void {
     this.url=this.router.url
-    console.log(this.url)
+    // console.log(this.url)
     this.apiService.getStatuses().subscribe((res)=>{
-      console.log(res)
+      // console.log(res)
       for (let i=0;i<res.length;i++){
         this.status.push(res[i].status_name)
       }
-      console.log(this.status)
+      // console.log(this.status)
     },(err)=>{
       console.log(err)
     })
     this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res)=>{
-      console.log(res)
+      // console.log(res)
       for (let i=0;i<res.billing.length;i++){
         let temp:IFile={}
         temp.period=res.period
