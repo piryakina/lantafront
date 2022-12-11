@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
   // data: Array<{}> = []
   ngOnInit() {
     this.url=this.router.url
-    console.log(this.url)
+    // console.log(this.url)
     this.apiService.getStatuses().subscribe((status) => {
       for (let k = 0; k < status.length; k++) {
         let t: IStatus = {}
@@ -44,7 +44,7 @@ export class TableComponent implements OnInit {
         this.statuses.push(t)
       }
       this.apiService.getDataPeriodNow().subscribe((res) => {
-        console.log(res)
+        // console.log(res)
         // console.log(this.statuses)
 
         for (let i = 0; i < res.length; i++) {
@@ -128,7 +128,7 @@ export class TableComponent implements OnInit {
   SetComment(i:number){
     this.body.id=this.file[i].idFile
     this.body.comments=this.file[i].comment
-    console.log(this.body)
+    // console.log(this.body)
     this.apiService.setComment(this.body).subscribe()
   }
   SetStatusNow(a:string|undefined, i:number){

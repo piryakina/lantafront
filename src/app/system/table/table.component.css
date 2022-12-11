@@ -29,3 +29,7 @@ td{
 select{
   width: 100%;
 }
+#downloadFile:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
