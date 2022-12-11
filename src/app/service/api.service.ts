@@ -72,6 +72,14 @@ export class ApiService {
   setComment(body:IComment):Observable<any>{
     return this.httpClient.post(this.apiDomen+`/set-comment`,body,{withCredentials:true})
   }
+  downloadFileById(id: number):Observable<Blob>{
+    return this.httpClient.get(this.apiDomen+`/billings/download`, {
+      withCredentials: true,
+      responseType: "blob",
+      params: new HttpParams()
+        .set("id", id)
+    })
+  }
   // //регистрация
   // signup(user: IUser): Observable<any> {
   //   return this.httpClient.post<IAnswer>(this.apiDomen + '/sign-up', user, {withCredentials: true});

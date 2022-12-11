@@ -147,4 +147,29 @@ export class TableComponent implements OnInit {
     }
 
   }
+
+  downloadFile(i: number){
+    //console.log(i)
+    const id = this.file[i].idFile
+    const filename = this.file[i].filename
+    console.log(id)
+    if (id && filename){
+      this.apiService.downloadFileById(id)
+        .subscribe(result=>{
+          let a = document.createElement('a');
+          let objectURL = URL.createObjectURL(result);
+          a.href = objectURL;
+          a.download = filename;
+          a.click();
+          URL.revokeObjectURL(objectURL);
+          alert('Успешно сохранено');
+        }, error=>{
+          console.log(error);
+          alert('Произошла ошибка при сохранении');
+        })
+    }
+    else {
+      alert("Файл указан неверно")
+    }
+  }
 }
