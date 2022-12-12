@@ -15,6 +15,7 @@ import {AddNewsComponent} from "./system/admin/add-news/add-news.component";
 const routes: Routes = [
   {path:"login", component: LoginPageComponent},
   {path:"home", component: HomePageComponent},
+  {path:"news/:id",component:HomePageComponent},
   {path:"usp", component: UspPageComponent},
   {path:"analytic", component: AnalyticPageComponent},
   {path:"sp", component: SpPageComponent},

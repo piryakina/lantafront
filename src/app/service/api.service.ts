@@ -80,6 +80,14 @@ export class ApiService {
         .set("id", id)
     })
   }
+  getNews():Observable<any>{
+    return this.httpClient.get(this.apiDomen+`/news`,{withCredentials:true})
+  }
+  getImgNews(id:number):Observable<any>{
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id",id);
+    return this.httpClient.get (this.apiDomen+`/news-img`,{params:queryParams,withCredentials:true})
+  }
   // //регистрация
   // signup(user: IUser): Observable<any> {
   //   return this.httpClient.post<IAnswer>(this.apiDomen + '/sign-up', user, {withCredentials: true});

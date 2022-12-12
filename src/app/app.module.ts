@@ -42,7 +42,7 @@ import { AddPeriodComponent } from './system/admin/add-period/add-period.compone
     AddUserComponent,
     TableComponent,
     AdminPageComponent,
-    AddPeriodComponent
+    AddPeriodComponent,
   ],
   imports: [
     BrowserModule,
