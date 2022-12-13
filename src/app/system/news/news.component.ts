@@ -17,7 +17,7 @@ export class NewsComponent implements OnInit {
   img: IAttach[] = []
   id: number = 0
   item: INews = {}
-
+  flag:boolean=false
   ngOnInit(): void {
     let url: string = this.router.url
     this.activatedRouter.queryParams.subscribe(params => {
@@ -31,14 +31,6 @@ export class NewsComponent implements OnInit {
         item.text = res[i].text
         item.title = res[i].title
         item.date = res[i].date
-        if (this.item.id!==undefined && item.id!==undefined){
-          if (item.id === this.item.id) {
-            this.item.text = this.news[i].text
-            this.item.title = this.news[i].title
-            this.item.date = this.news[i].date
-          }
-        }
-
         if (res[i].attachments !== undefined) {
           for (let j = 0; j < res[i].attachments.length; j++) {
             let a: IAttach = {}
@@ -52,17 +44,29 @@ export class NewsComponent implements OnInit {
         this.news.push(item)
       }
       // console.log(this.news)
-      // console.log(this.img)
-    }, (err)=>{console.log(err)})
-    if (url.includes("news")) {
-      let c1 = document.getElementById("news")
-      if (c1 !== null) {
-        c1.hidden = true
-      }
-      let c2 = document.getElementById("news-item")
-      if (c2 !== null) {
-        c2.hidden = false
-      }
+      // console.log(this.news.length)
+      if (url.includes("id")) {
+        for (let i=0;i<this.news.length;i++){
+          // console.log(typeof(this.item.id))
+          // console.log(typeof this.news[i].id)
+          if (this.news[i].id!==undefined){
+            if (this.news[i].id == this.item.id) {
+              console.log(this.item.id)
+              this.item.text = this.news[i].text
+              this.item.title = this.news[i].title
+              this.item.date = this.news[i].date
+              console.log(this.item.text)
+            }
+          }
+        }
+        let c1 = document.getElementById("news")
+        if (c1 !== null) {
+          c1.hidden = true
+        }
+        let c2 = document.getElementById("news-item")
+        if (c2 !== null) {
+          c2.hidden = false
+        }
         // console.log(params["id"])
         // console.log(this.item.id)
         // for (let i = 0; i < this.news.length; i++) {
@@ -76,7 +80,9 @@ export class NewsComponent implements OnInit {
         // }
 
 
-    }
+      }
+    }, (err)=>{console.log(err)})
+
 
   }
 

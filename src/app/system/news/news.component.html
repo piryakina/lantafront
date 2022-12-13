@@ -67,34 +67,64 @@
   <!--Section: Content-->
   <section>
     <div class="row gx-lg-5">
-      <div *ngFor="let i of news" class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-        <!-- News block -->
-        <div>
-          <!-- Featured image -->
-          <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
-               data-mdb-ripple-color="light">
-            <img src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-            </a>
-          </div>
-          <a routerLink="news" [queryParams]="{id:i.id}" class="text-dark">
-            <div>
-              <div class="h5">{{i.title}}</div>
+
+      <ng-container  *ngFor="let i of news">
+
+        <div class="col-lg-4 col-md-11 mb-4 mb-lg-0">
+          <!-- News block -->
+          <div>
+            <!-- Featured image -->
+            <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
+                 data-mdb-ripple-color="light">
+              <img src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <a class="text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false"  href="#collapseExample{{i.id}}">
               <div>
-                {{i.date}}
+                <div class="h5">{{i.title}}</div>
+                <div>
+                  {{i.date}}
+                </div>
+              </div>
+              <p>
+                {{i.text}}
+              </p>
+            </a>
+            <hr/>
+          </div>
+          <!-- News block -->
+
+        </div>
+        <div id="collapseExample{{i.id}}" class="collapse" >
+          <section class="border-bottom pb-4 mb-5 ">
+            <div class="row gx-5">
+              <div class="col-md-6 mb-4">
+                <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
+                  <img *ngIf="i.id!==undefined" src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>
+                  <!--          <a href="">-->
+                  <!--            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+                  <!--          </a>-->
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <h4><strong>{{i.title}}</strong></h4>
+                <p class="text-muted">
+                  {{i.text}}
+                </p>
+
+                <!--        <button type="button" class="btn btn-primary">Read more</button>-->
               </div>
             </div>
-            <p>
-              {{i.text}}
-            </p>
-          </a>
-          <hr/>
+          </section>
         </div>
-        <!-- News block -->
-      </div>
+      </ng-container>
+
+
 
     </div>
+
   </section>
   <!--Section: Content-->
   <!--  <nav class="my-4" aria-label="...">-->
@@ -119,25 +149,25 @@
 
 <!--Main layout-->
 
-<div hidden="true" id="news-item" class="container">
-  <section class="border-bottom pb-4 mb-5">
-    <div class="row gx-5">
-      <div class="col-md-6 mb-4">
-        <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-          <img *ngIf="item.id!==undefined" src="http://localhost:8080/news-img?id={{item.id}}" class="img-fluid"/>
-          <!--          <a href="">-->
-          <!--            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
-          <!--          </a>-->
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <h4><strong>{{item.title}}</strong></h4>
-        <p class="text-muted">
-          {{item.text}}
-        </p>
+<!--<div hidden="true" id="news-item" class="container">-->
+<!--  <section class="border-bottom pb-4 mb-5">-->
+<!--    <div class="row gx-5">-->
+<!--      <div class="col-md-6 mb-4">-->
+<!--        <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">-->
+<!--          <img *ngIf="item.id!==undefined" src="http://localhost:8080/news-img?id={{item.id}}" class="img-fluid"/>-->
+<!--          &lt;!&ndash;          <a href="">&ndash;&gt;-->
+<!--          &lt;!&ndash;            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>&ndash;&gt;-->
+<!--          &lt;!&ndash;          </a>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-md-6 mb-4">-->
+<!--        <h4><strong>{{item.title}}</strong></h4>-->
+<!--        <p class="text-muted">-->
+<!--          {{item.text}}-->
+<!--        </p>-->
 
-        <!--        <button type="button" class="btn btn-primary">Read more</button>-->
-      </div>
-    </div>
-  </section>
-</div>
+<!--        &lt;!&ndash;        <button type="button" class="btn btn-primary">Read more</button>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</div>-->
