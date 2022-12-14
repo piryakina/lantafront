@@ -6,6 +6,8 @@ div{
 /*}*/
 app-menu{
   float: left;
+  position: fixed;
+  left: 0;
 }
 #a-table{
   border-left: 0.5vw solid #2A6879;
@@ -25,7 +27,7 @@ app-menu{
   height: 40px;
   float: left;
 }
-/*app-sp{*/
-/*  float: left;*/
-/*  height: 100%;*/
-/*}*/
+app-sp{
+display: inline-flex;
+  margin-top: 5%;
+}

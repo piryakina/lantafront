@@ -10,17 +10,21 @@ table {
   text-align: center;
   width:  100%;
   background-color: white;
+  height: 100%;
+  margin-left: auto;
+    margin-right: auto;
   /*margin-right: 10%;*/
 
 }
 #sp-table{
-  width: 70%;
-  float: right;
-  margin-top: 7%;
-  padding-left: 3%;
+  width: 80%;
+  margin-top: 3%;
+  float: left;
+
+  height: 100%;
 }
 app-uploader{
-  width: 39%;
+  width: 20%;
   margin-top:1%;
 
 }
@@ -52,9 +56,17 @@ app-menu{
   left: 0;
 }
 .progress{
-padding-bottom: 2%;
-  height: 3%;
+/*padding-bottom: 2%;*/
+  height: 5vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
 }
 #table{
+  height: 100%;
+  float: left;
+}
+.progress-bar{
   height: 100%;
 }

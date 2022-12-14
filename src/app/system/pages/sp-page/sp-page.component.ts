@@ -8,7 +8,7 @@ import {LocalStorageService} from "ngx-webstorage";
   styleUrls: ['./sp-page.component.css']
 })
 export class SpPageComponent implements OnInit{
-  name:string="СП"
+  name:string="Сервисный партнёр"
   constructor(private apiService:ApiService, private storage:LocalStorageService) {
   }
   ngOnInit(): void {

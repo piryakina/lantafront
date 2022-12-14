@@ -10,10 +10,10 @@
   <div *ngIf="role=='администратор';then Admin"></div>
   <ng-template #Admin>
     <a class="nav-link px-5 fs-5" routerLink="/news">Новости</a>
-    <a class="nav-link px-5 fs-5"  routerLink="/knowledge">База знаний</a>
+<!--    <a class="nav-link px-5 fs-5"  routerLink="/knowledge">База знаний</a>-->
     <a class="nav-link px-5 fs-5"  id="analytic" routerLink="/analytic">Аналитика</a>
     <a class="nav-link px-5 fs-5"  id="usp" routerLink="/usp">УСП</a>
-    <a class="nav-link  px-5 fs-5"  id="archive" routerLink="/archive">Архив</a>
+<!--    <a class="nav-link  px-5 fs-5"  id="archive" routerLink="/archive">Архив</a>-->
     <a class="nav-link  px-5 fs-5"  id="admin" routerLink="/admin">Администрирование</a>
     <button  type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
 <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
@@ -22,7 +22,7 @@
   <ng-template #Usp>
     <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
     <a class="nav-link px-5 fs-5" routerLink="/usp">Взаиморасчёт</a>
-    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>
+<!--    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>-->
     <button   type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
 <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
   </ng-template>
@@ -30,7 +30,7 @@
   <ng-template #Analytic>
     <a class="nav-link px-5 fs-5" routerLink="/">Новости</a>
     <a class="nav-link px-5 fs-5" routerLink="/analytic">Взаиморасчёт</a>
-    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>
+<!--    <a class="nav-link px-5 fs-5" routerLink="/knowledge">База знаний</a>-->
 
     <button type="submit" class="btn btn-primary mb-2" (click)="Logout()">Выйти</button>
 <!--    <button [hidden]="true" type="submit" class="btn btn-primary mb-2" (click)="Login()">Войти</button>-->
