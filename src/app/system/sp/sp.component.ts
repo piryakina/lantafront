@@ -47,17 +47,19 @@ export class SpComponent  implements  OnInit {
       console.log(err)
     })
     this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res)=>{
-      // console.log(res)
-      for (let i=0;i<res.billing.length;i++){
-        let temp:IFile={}
-        temp.period=res.period
-        temp.filename=res.billing[i].filename
-        temp.status=res.billing[i].status
-        temp.date=res.billing[i].date
-        this.files.push(temp)
-        // console.log(res.billing[i].status)
+       console.log(res)
+      if (res.billing!==undefined){
+        for (let i=0;i<res.billing.length;i++){
+          let temp:IFile={}
+          temp.period=res.period
+          temp.filename=res.billing[i].filename
+          temp.status=res.billing[i].status
+          temp.date=res.billing[i].date
+          this.files.push(temp)
+          // console.log(res.billing[i].status)
 
-       }
+        }
+      }
       // this.files.sort(compare())
     }, (err)=>{
       console.error(err)
