@@ -10,7 +10,7 @@ a{
 img{
   width: 100%;
   min-width: 20vw;
-  min-height: 43vh;
+  min-height: 38vh;
   height: 100%;
   float: left;
   margin: 3px;
@@ -19,4 +19,8 @@ img{
 }
 .border-bottom{
   float: left;
+}
+.news{
+  color:#0D27D4;
+  font-weight: bold;
 }
