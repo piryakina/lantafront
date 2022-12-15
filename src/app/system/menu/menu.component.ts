@@ -63,7 +63,7 @@ export class MenuComponent implements OnInit {
       btn2.hidden = true
     }
     window.location.reload()
-    window.location.href="http://localhost:4200"
+    window.location.href="http://sp.lantaservice.com:4200" //todo localhost
   }
 
   Login() {
