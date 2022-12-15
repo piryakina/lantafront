@@ -14,7 +14,7 @@ import {query} from "@angular/animations";
 export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
-  apiDomen = 'http://localhost:8080';
+  apiDomen = 'http://localhost:8081';
   headers = new HttpHeaders({
     'Content-Type': 'application/json'
   })
