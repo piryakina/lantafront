@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../service/api.service";
+import {apiDomen, ApiService} from "../../service/api.service";
 import {IAttach, INews} from "../../entities/INews";
 import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -18,6 +18,7 @@ export class NewsComponent implements OnInit {
   id: number = 0
   item: INews = {}
   flag:boolean=false
+  domen:string = apiDomen
   ngOnInit(): void {
     let url: string = this.router.url
     this.activatedRouter.queryParams.subscribe(params => {
