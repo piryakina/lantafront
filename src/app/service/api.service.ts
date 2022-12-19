@@ -11,11 +11,12 @@ import {query} from "@angular/animations";
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
   // apiDomen = 'http://localhost:8080';
- // apiDomen = 'http://sp.lantaservice.com:8080';
+  // apiDomen = 'http://sp.lantaservice.com:8080';
   headers = new HttpHeaders({
     'Content-Type': 'application/json'
   })
@@ -84,10 +85,13 @@ export class ApiService {
   getNews():Observable<any>{
     return this.httpClient.get(apiDomen+`/news`,{withCredentials:true})
   }
-  getImgNews(id:number):Observable<any>{
-    let queryParams = new HttpParams();
-    queryParams = queryParams.append("id",id);
-    return this.httpClient.get (apiDomen+`/news-img`,{params:queryParams,withCredentials:true})
+  getImgNews(id:number):Observable<Blob>{
+    return this.httpClient.get(apiDomen+`/news-img`, {
+      withCredentials: true,
+      responseType: "blob",
+      params: new HttpParams()
+        .set("id", id)
+    })
   }
   // //регистрация
   // signup(user: IUser): Observable<any> {
@@ -110,3 +114,4 @@ export class ApiService {
   // }
 }
 export const apiDomen="http://sp.lantaservice.com:8080"
+//export const apiDomen = 'http://localhost:8080"

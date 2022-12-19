@@ -3,6 +3,8 @@ export interface INews{
   title?:string,
   text?:string,
   date?:string,
+  attach?:Blob,
+  link?:string
 }
 export interface IAttach{
   id?:number,

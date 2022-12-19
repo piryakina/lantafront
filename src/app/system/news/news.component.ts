@@ -42,6 +42,25 @@ export class NewsComponent implements OnInit {
             this.img.push(a)
           }
         }
+        // item.attach=
+        if (item.id!==undefined){
+          this.api.getImgNews(item.id).subscribe((res)=>{
+            item.attach=res
+            // console.log(URL.createObjectURL(res))
+            item.link=URL.createObjectURL(res)
+            let im=document.getElementById("img"+item.id)
+            let all=document.getElementById("img_full"+item.id)
+            if (im!==null){
+              let pic = document.createElement("img")
+              pic.className="img-fluid"
+              pic.src=item.link
+              im.append(pic)
+              // all.append(pic)
+            }
+          },(error)=>{
+            console.log(error)
+          })
+        }
         this.news.push(item)
       }
       // console.log(this.news)
@@ -59,14 +78,6 @@ export class NewsComponent implements OnInit {
               console.log(this.item.text)
             }
           }
-        }
-        let c1 = document.getElementById("news")
-        if (c1 !== null) {
-          c1.hidden = true
-        }
-        let c2 = document.getElementById("news-item")
-        if (c2 !== null) {
-          c2.hidden = false
         }
         // console.log(params["id"])
         // console.log(this.item.id)
@@ -87,11 +98,27 @@ export class NewsComponent implements OnInit {
 
   }
 
-  // getImgNews(i:number){
-  //
-  //   this.api.getImgNews(i).subscribe((res)=>{
-  //     return res
-  //   }, (err)=>{return err})
-  // }
+  getImgNews(id:number):any{
+    // console.log(i)
+    for (let i=0;i<this.news.length;i++){
+      if (id===this.news[i].id){
+        let all=document.getElementById("img_full"+id)
+        let pic = document.createElement("img")
+        let collapse = document.getElementById("collapseExample"+id)
+        if (collapse!==null){
+          pic.className="img-fluid"
+          if (this.news[i].link!==undefined){
+            // @ts-ignore
+            pic.src= this.news[i].link.toString()
+            if (all!==null){
+              all.append(pic)
+            }
+          }
+        }
+
+
+      }
+    }
+  }
 
 }

@@ -79,11 +79,15 @@
                  data-mdb-ripple-color="light">
 	 <img src="{{this.domen}}/news-img?id={{i.id}}" class="img-fluid"/><!-- todo link backend server-->
              <!-- <img src="http://sp.lantaservice.com:8080/news-img?id={{i.id}}" class="img-fluid"/>-->
+<!--              <img src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>-->
+<!--              <img *ngIf="i.id!==undefined" [src]="getImgNews(i.id)" class="img-fluid"/>-->
+<!--                  <div class="container_img{{i.id}}"></div>-->
+              <div id="img{{i.id}}"></div>
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
             </div>
-            <a class="text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false"  href="#collapseExample{{i.id}}">
+            <a *ngIf="i.id!==undefined" (click)="getImgNews(i.id)" class="text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false"  href="#collapseExample{{i.id}}">
               <div>
                 <div class="h5">{{i.title}}</div>
                 <div>
@@ -99,15 +103,18 @@
           <!-- News block -->
 
         </div>
-        <div id="collapseExample{{i.id}}" class="collapse" >
+
+        <div id="collapseExample{{i.id}}" class="collapse">
           <section class="border-bottom pb-4 mb-5 ">
             <div class="row gx-5">
               <div class="col-md-6 mb-4">
                 <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-                  <img *ngIf="i.id!==undefined" src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>
+<!--                  <img *ngIf="i.id!==undefined" src="{{i.attach}}" class="img-fluid"/>-->
                   <!--          <a href="">-->
                   <!--            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
                   <!--          </a>-->
+                  <div *ngIf="i.id!==undefined" id="img_full{{i.id}}"></div>
+
                 </div>
               </div>
               <div class="col-md-6 mb-4">
