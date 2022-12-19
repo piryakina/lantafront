@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../../service/api.service";
+import {apiDomen, ApiService} from "../../service/api.service";
 import {IAttach, INews} from "../../entities/INews";
 import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -18,6 +18,7 @@ export class NewsComponent implements OnInit {
   id: number = 0
   item: INews = {}
   flag:boolean=false
+  domen:string=apiDomen
   ngOnInit(): void {
     let url: string = this.router.url
     this.activatedRouter.queryParams.subscribe(params => {
@@ -86,11 +87,14 @@ export class NewsComponent implements OnInit {
 
   }
 
-  // getImgNews(i:number){
-  //
-  //   this.api.getImgNews(i).subscribe((res)=>{
-  //     return res
-  //   }, (err)=>{return err})
-  // }
+  getImgNews(i:number):any{
+    // console.log(i)
+    this.api.getImgNews(i).subscribe((res)=>{
+      // let img = document.createElement('img');
+      // img.src=URL.createObjectURL(res);
+      // console.log(URL.createObjectURL(res))
+      return URL.createObjectURL(res)
+    }, (err)=>{return err})
+  }
 
 }
