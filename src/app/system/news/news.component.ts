@@ -19,6 +19,7 @@ export class NewsComponent implements OnInit {
   item: INews = {}
   flag:boolean=false
   domen:string = apiDomen
+  flag_img:boolean=false
   ngOnInit(): void {
     let url: string = this.router.url
     this.activatedRouter.queryParams.subscribe(params => {
@@ -100,25 +101,29 @@ export class NewsComponent implements OnInit {
 
   getImgNews(id:number):any{
     // console.log(i)
-    for (let i=0;i<this.news.length;i++){
-      if (id===this.news[i].id){
-        let all=document.getElementById("img_full"+id)
-        let pic = document.createElement("img")
-        let collapse = document.getElementById("collapseExample"+id)
-        if (collapse!==null){
-          pic.className="img-fluid"
-          if (this.news[i].link!==undefined){
-            // @ts-ignore
-            pic.src= this.news[i].link.toString()
-            if (all!==null){
-              all.append(pic)
+    this.flag_img=true
+    if (!this.flag_img){
+      for (let i=0;i<this.news.length;i++){
+        if (id===this.news[i].id){
+          let all=document.getElementById("img_full"+id)
+          let pic = document.createElement("img")
+          let collapse = document.getElementById("collapseExample"+id)
+          if (collapse!==null){
+            pic.className="img-fluid"
+            if (this.news[i].link!==undefined){
+              // @ts-ignore
+              pic.src= this.news[i].link.toString()
+              if (all!==null){
+                all.append(pic)
+              }
             }
           }
+
+
         }
-
-
       }
     }
+
   }
 
 }
