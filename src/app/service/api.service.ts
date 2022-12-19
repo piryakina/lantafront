@@ -15,8 +15,6 @@ import {query} from "@angular/animations";
 export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
-  // apiDomen = 'http://localhost:8080';
-  // apiDomen = 'http://sp.lantaservice.com:8080';
   headers = new HttpHeaders({
     'Content-Type': 'application/json'
   })
@@ -113,5 +111,4 @@ export class ApiService {
   //   return this.httpClient.post(apiDomen+'/test-list/upload',data,{withCredentials:true})
   // }
 }
-export const apiDomen="http://sp.lantaservice.com:8080"
-//export const apiDomen = 'http://localhost:8080"
+export const apiDomen = 'http://sp.lantaservice.com:8080';
