@@ -113,4 +113,5 @@ export class ApiService {
   //   return this.httpClient.post(this.apiDomen+'/test-list/upload',data,{withCredentials:true})
   // }
 }
-export const apiDomen = 'http://localhost:8080';
+// export const apiDomen = 'http://localhost:8080';
+export const apiDomen = 'http://sp.lantaservice.com:8080';
