@@ -22,6 +22,9 @@ export class AddNewsComponent implements OnInit{
     this.apiService.addNews(data).subscribe((res)=>{
       console.log(res)
       this.storage.store("newsId",res.id)
-    },(err)=>{console.log(err)})
+      alert("Новости успешно добавлены!")
+    },(err)=>{
+      alert("Ошибка! Попробуйте еще раз")
+      console.log(err)})
   }
 }

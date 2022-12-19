@@ -94,8 +94,8 @@
                   {{i.date}}
                 </div>
               </div>
-              <p>
-                {{i.text}}
+              <p *ngIf="i.text!==undefined">
+                {{i.text.substring(0,i.text.indexOf(" ",200))}}...
               </p>
             </a>
             <hr/>
