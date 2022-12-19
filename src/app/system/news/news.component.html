@@ -95,7 +95,12 @@
                 </div>
               </div>
               <p *ngIf="i.text!==undefined">
-                {{i.text.substring(0,i.text.indexOf(" ",200))}}...
+                <ng-container *ngIf="i.text.length>200">
+                  {{i.text.substring(0,i.text.indexOf(" ",200))}}...
+                </ng-container>
+                <ng-container *ngIf="i.text.length<200">
+                  {{i.text}}
+                </ng-container>
               </p>
             </a>
             <hr/>
