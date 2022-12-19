@@ -30,7 +30,7 @@ export class AddPeriodComponent implements OnInit {
       this.router.navigate(["/admin"])
     }, (err) => {
       console.log(err)
-      alert("Ошибка!")
+      alert("Ошибка! Попробуйте ещё раз")
       this.router.navigate(["/admin"])
     })
   }

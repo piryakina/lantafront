@@ -4,6 +4,7 @@
     <div *ngIf="name!=='';then Name else Null"></div>
     <ng-template #Name><span class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</span></ng-template>
     <ng-template #Null><span class="navbar-brand m-5 h1 fw-bold fs-4"></span></ng-template>
+    <span class="navbar-brand m-5 h1 fw-bold fs-4">Период 15 {{month}}- 15 {{monthNext}} открыт</span>
   </div>
   <app-table></app-table>
 </div>
