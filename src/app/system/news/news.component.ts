@@ -19,7 +19,7 @@ export class NewsComponent implements OnInit {
   item: INews = {}
   flag:boolean=false
   domen:string = apiDomen
-  flag_img:boolean=false
+  list:number[] = []
   ngOnInit(): void {
     let url: string = this.router.url
     this.activatedRouter.queryParams.subscribe(params => {
@@ -102,7 +102,7 @@ export class NewsComponent implements OnInit {
   getImgNews(id:number):any{
     // console.log(i)
 
-    if (!this.flag_img){
+    if (!this.list.includes(id)){
       for (let i=0;i<this.news.length;i++){
         if (id===this.news[i].id){
           let all=document.getElementById("img_full"+id)
@@ -122,8 +122,9 @@ export class NewsComponent implements OnInit {
 
         }
       }
+      this.list.push(id)
     }
-    this.flag_img=true
+
 
   }
 
