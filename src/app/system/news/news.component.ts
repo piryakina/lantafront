@@ -101,7 +101,7 @@ export class NewsComponent implements OnInit {
 
   getImgNews(id:number):any{
     // console.log(i)
-    this.flag_img=true
+
     if (!this.flag_img){
       for (let i=0;i<this.news.length;i++){
         if (id===this.news[i].id){
@@ -123,6 +123,7 @@ export class NewsComponent implements OnInit {
         }
       }
     }
+    this.flag_img=true
 
   }
 
