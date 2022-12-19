@@ -18,7 +18,7 @@ export class NewsComponent implements OnInit {
   id: number = 0
   item: INews = {}
   flag:boolean=false
-  domen:string=apiDomen
+  domen:string = apiDomen
   ngOnInit(): void {
     let url: string = this.router.url
     this.activatedRouter.queryParams.subscribe(params => {

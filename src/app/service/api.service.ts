@@ -15,8 +15,6 @@ import {query} from "@angular/animations";
 export class ApiService {
   constructor(private httpClient: HttpClient) {
   }
-  // apiDomen = 'http://localhost:8080';
-  // apiDomen = 'http://sp.lantaservice.com:8080';
   headers = new HttpHeaders({
     'Content-Type': 'application/json'
   })
@@ -95,23 +93,22 @@ export class ApiService {
   }
   // //регистрация
   // signup(user: IUser): Observable<any> {
-  //   return this.httpClient.post<IAnswer>(this.apiDomen + '/sign-up', user, {withCredentials: true});
+  //   return this.httpClient.post<IAnswer>(apiDomen + '/sign-up', user, {withCredentials: true});
   // }
   // //выход
   // logout(): Observable<IAnswer> {
-  //   return this.httpClient.get<IAnswer>(this.apiDomen + '/log-out', {withCredentials: true});
+  //   return this.httpClient.get<IAnswer>(apiDomen + '/log-out', {withCredentials: true});
   // }
   //
   // //список оборудования
   // getequipment(): Observable<IEquipment[]> {
-  //   return this.httpClient.get<IEquipment[]>(this.apiDomen + '/equipments', {withCredentials: true});
+  //   return this.httpClient.get<IEquipment[]>(apiDomen + '/equipments', {withCredentials: true});
   // }
   // uploadfilebilling(data:any):Observable<any>{
-  //   return this.httpClient.post(this.apiDomen+'/billings/upload',data,{withCredentials:true})
+  //   return this.httpClient.post(apiDomen+'/billings/upload',data,{withCredentials:true})
   // }
   // uploadfiletestlist(data:any):Observable<any>{
-  //   return this.httpClient.post(this.apiDomen+'/test-list/upload',data,{withCredentials:true})
+  //   return this.httpClient.post(apiDomen+'/test-list/upload',data,{withCredentials:true})
   // }
 }
-// export const apiDomen = 'http://localhost:8080';
 export const apiDomen = 'http://sp.lantaservice.com:8080';
