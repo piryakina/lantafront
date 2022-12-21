@@ -49,7 +49,6 @@ export class TableComponent implements OnInit {
       this.apiService.getDataPeriodNow().subscribe((res) => {
         // console.log(res)
         // console.log(this.statuses)
-
         for (let i = 0; i < res.length; i++) {
 
           // let temp: IRow = {}
