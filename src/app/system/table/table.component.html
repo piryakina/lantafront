@@ -10,23 +10,24 @@
   </tr>
   </thead>
   <tbody>
-  <ng-container *ngIf="file===[]">
+  <tr *ngIf="file===[]">
     <th scope="row"></th>
     <td colspan="5">Файлы еще не загружены...</td>
-  </ng-container>
+  </tr>
+
   <tr *ngFor="let item of file;let i=index">
 
-    <th scope="row" >{{item.sp}}</th>
+    <th scope="row">{{item.sp}}</th>
     <td>{{item.period}}</td>
     <td>{{item.date}}</td>
     <!--    <td>{{item.status}}</td>-->
     <td>
       <div *ngIf="url==='/analytic';then An"></div>
       <ng-template #An>
-        <select (change)="SetStatusNow(item.status,i)" [(ngModel)]="item.status" >
+        <select (change)="SetStatusNow(item.status,i)" [(ngModel)]="item.status">
           <ng-container *ngFor="let a of analytic">
-            <option  [selected]="a.status_name===item.status">{{a.status_name}}</option>
-<!--            <option *ngIf="a.status_name!==item.status">{{a.status_name}}</option>-->
+            <option [selected]="a.status_name===item.status">{{a.status_name}}</option>
+            <!--            <option *ngIf="a.status_name!==item.status">{{a.status_name}}</option>-->
           </ng-container>
 
         </select>
@@ -43,7 +44,8 @@
     </td>
     <td id="downloadFile" title="скачать файл" (click)="downloadFile(i)">{{item.filename}}</td>
     <td>
-      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)" placeholder="Введите замечания"></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)"
+                placeholder="Введите замечания"></textarea>
     </td>
   </tr>
   <!--    <tr>-->
