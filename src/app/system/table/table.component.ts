@@ -5,6 +5,7 @@ import {IComment, IRow, IStatus} from "../../entities/IFile";
 import {Router} from "@angular/router";
 
 
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -141,7 +142,7 @@ export class TableComponent implements OnInit {
     this.apiService.setComment(this.body).subscribe()
   }
 
-  SetStatusNow(a: string, i: number) {
+  SetStatusNow(a: string | undefined, i: number) {
     // console.log(a)
     let idSt: any
     for (let i = 0; i < this.statuses.length; i++) {
@@ -155,6 +156,9 @@ export class TableComponent implements OnInit {
     if (fileId !== undefined && idSt !== undefined) {
       this.apiService.setStatus(fileId, idSt).subscribe((res) => {
         console.log(res)
+        alert("статус изменен")
+      }, error=>{
+        console.log(error)
       })
     }
 
