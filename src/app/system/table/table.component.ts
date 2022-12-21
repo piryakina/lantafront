@@ -160,7 +160,7 @@ export class TableComponent implements OnInit {
   }
 
   downloadFile(i: number) {
-    //console.log(i)
+    console.log(i)
     const id = this.file[i].idFile
     const filename = this.file[i].filename
     console.log(id)

@@ -41,7 +41,7 @@
         </select>
       </ng-template>
     </td>
-    <td id="downloadFile" title="скачать файл" (click)="downloadFile(item.idFile)">{{item.filename}}</td>
+    <td id="downloadFile" title="скачать файл" (click)="downloadFile(i)">{{item.filename}}</td>
     <td>
       <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)"
                 placeholder="Введите замечания"></textarea>
