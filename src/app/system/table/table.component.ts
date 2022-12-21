@@ -31,18 +31,14 @@ export class TableComponent implements OnInit {
       if (status !== null) {
         for (let k = 0; k < status.length; k++) {
           let t: IStatus = {}
+          t.id = status[k].id
+          t.status_name = status[k].status_name
           if (status[k].id === 1 || status[k].id === 2 || status[k].id === 3 || status[k].id === 4) {
-            t.id = status[k].id
-            t.status_name = status[k].status_name
             this.analytic.push(t)
           }
           if (status[k].id === 3 || status[k].id === 5 || status[k].id === 6 || status[k].id === 7 || status[k].id === 8) {
-            t.id = status[k].id
-            t.status_name = status[k].status_name
             this.usp.push(t)
           }
-          t.id = status[k].id
-          t.status_name = status[k].status_name
           this.statuses.push(t)
         }
       }
@@ -145,7 +141,7 @@ export class TableComponent implements OnInit {
     this.apiService.setComment(this.body).subscribe()
   }
 
-  SetStatusNow(a: string | undefined, i: number) {
+  SetStatusNow(a: string, i: number) {
     // console.log(a)
     let idSt: any
     for (let i = 0; i < this.statuses.length; i++) {
