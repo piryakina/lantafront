@@ -23,7 +23,7 @@
     <td>
       <div *ngIf="url==='/analytic';then An"></div>
       <ng-template #An>
-        <select (change)="SetStatusNow(item.status,i)" [(ngModel)]="item.status">
+        <select  [(ngModel)]="item.status" (change)="SetStatusNow(item.status,i)">
           <ng-container *ngFor="let a of analytic">
             <option [selected]="a.status_name===item.status">{{a.status_name}}</option>
             <!--            <option *ngIf="a.status_name!==item.status">{{a.status_name}}</option>-->
