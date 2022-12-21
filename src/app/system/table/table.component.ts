@@ -36,7 +36,7 @@ export class TableComponent implements OnInit {
             t.status_name = status[k].status_name
             this.analytic.push(t)
           }
-          if (status[k].id === 3 || status[k].id === 5 || status[k].id === 6 || status[k].id === 8 || status[k].id === 10) {
+          if (status[k].id === 3 || status[k].id === 5 || status[k].id === 6 || status[k].id === 7 || status[k].id === 8) {
             t.id = status[k].id
             t.status_name = status[k].status_name
             this.usp.push(t)
