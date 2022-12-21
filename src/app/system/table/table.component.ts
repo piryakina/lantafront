@@ -126,6 +126,7 @@ export class TableComponent implements OnInit {
       console.log(error)
     })
 
+    console.log(this.file)
   }
   SetComment(i:number){
     this.body.id=this.file[i].idFile
