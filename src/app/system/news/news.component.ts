@@ -25,7 +25,7 @@ export class NewsComponent implements OnInit {
     this.activatedRouter.queryParams.subscribe(params => {
       this.item.id = params["id"]})
     this.api.getNews().subscribe((res) => {
-      console.log(res)
+      // console.log(res)
 
       for (let i = 0; i < res.length; i++) {
         let item: INews = {}
@@ -48,14 +48,17 @@ export class NewsComponent implements OnInit {
           this.api.getImgNews(item.id).subscribe((res)=>{
             item.attach=res
             // console.log(URL.createObjectURL(res))
-            item.link=URL.createObjectURL(res)
-            let im=document.getElementById("img"+item.id)
-            let all=document.getElementById("img_full"+item.id)
-            if (im!==null){
-              let pic = document.createElement("img")
-              pic.className="img-fluid"
-              pic.src=item.link
-              im.append(pic)
+            if (res!==null){
+              item.link=URL.createObjectURL(res)
+              let im=document.getElementById("img"+item.id)
+              let all=document.getElementById("img_full"+item.id)
+              if (im!==null){
+                let pic = document.createElement("img")
+                pic.className="img-fluid"
+                pic.src=item.link
+                im.append(pic)
+            }
+
               // all.append(pic)
             }
           },(error)=>{
