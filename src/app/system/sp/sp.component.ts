@@ -30,11 +30,7 @@ export class SpComponent  implements  OnInit {
     const d = new Date();
     this.month= this.monthNames[d.getMonth()]
     console.log(this.month)
-    if (today.getDate()<15){
-      this.visible=false
-    }else{
-      this.visible=true
-    }
+    this.visible = today.getDate() >= 15;
     this.url=this.router.url
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((res)=>{
