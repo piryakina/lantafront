@@ -35,8 +35,10 @@ export class SpComponent  implements  OnInit {
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((res)=>{
       // console.log(res)
-      for (let i=0;i<res.length;i++){
-        this.status.push(res[i].status_name)
+      if (res!==null){
+        for (let i=0;i<res.length;i++){
+          this.status.push(res[i].status_name)
+        }
       }
       // console.log(this.status)
     },(err)=>{
