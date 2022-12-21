@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../service/api.service";
 import {IUser} from "../../../entities/IUser";
 import {Router} from "@angular/router";
+import {closestNode} from "@angular/core/schematics/utils/typescript/nodes";
 
 @Component({
   selector: 'app-add-user',
@@ -48,6 +49,7 @@ export class AddUserComponent implements OnInit {
   }
   CheckUser(login: string){
     this.api.CheckLogin(login).subscribe((res)=>{
+      console.log(res)
       this.isUse = res !== false;
     })
   }
