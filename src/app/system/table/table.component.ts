@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {LocalStorageService} from "ngx-webstorage";
 import {ApiService} from "../../service/api.service";
-import {IComment, IFile, IRow, IStatus} from "../../entities/IFile";
+import {IComment, IRow, IStatus} from "../../entities/IFile";
 import {Router} from "@angular/router";
-import {DatePipe} from "@angular/common";
 
 
 @Component({
@@ -28,6 +27,7 @@ export class TableComponent implements OnInit {
     this.url = this.router.url
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((status) => {
+      console.log(status)
       if (status !== null) {
         for (let k = 0; k < status.length; k++) {
           let t: IStatus = {}
@@ -48,6 +48,7 @@ export class TableComponent implements OnInit {
       }
 
       this.apiService.getDataPeriodNow().subscribe((res) => {
+        console.log(res)
         // console.log(res)
         // console.log(this.statuses)
         if (res.Status !== null) {
