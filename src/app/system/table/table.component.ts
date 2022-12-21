@@ -27,22 +27,25 @@ export class TableComponent implements OnInit {
     this.url=this.router.url
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((status) => {
-      for (let k = 0; k < status.length; k++) {
-        let t: IStatus = {}
-        if (status[k].id===1 ||status[k].id===2||status[k].id===3||status[k].id===4){
-          t.id = status[k].id
-          t.status_name = status[k].status_name
+      if (status!==null){
+        for (let k = 0; k < status.length; k++) {
+          let t: IStatus = {}
+          if (status[k].id===1 ||status[k].id===2||status[k].id===3||status[k].id===4){
+            t.id = status[k].id
+            t.status_name = status[k].status_name
             this.analytic.push(t)
-        }
-        if (status[k].id===3 ||status[k].id===5 ||status[k].id===6||status[k].id===8||status[k].id===10){
+          }
+          if (status[k].id===3 ||status[k].id===5 ||status[k].id===6||status[k].id===8||status[k].id===10){
+            t.id = status[k].id
+            t.status_name = status[k].status_name
+            this.usp.push(t)
+          }
           t.id = status[k].id
           t.status_name = status[k].status_name
-          this.usp.push(t)
+          this.statuses.push(t)
         }
-        t.id = status[k].id
-        t.status_name = status[k].status_name
-        this.statuses.push(t)
       }
+
       this.apiService.getDataPeriodNow().subscribe((res) => {
         // console.log(res)
         // console.log(this.statuses)
