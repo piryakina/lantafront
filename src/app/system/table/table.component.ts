@@ -27,7 +27,7 @@ export class TableComponent implements OnInit {
     this.url = this.router.url
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((status) => {
-      console.log(status)
+      // console.log(status)
       if (status !== null) {
         for (let k = 0; k < status.length; k++) {
           let t: IStatus = {}
