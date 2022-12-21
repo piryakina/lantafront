@@ -51,11 +51,9 @@ export class TableComponent implements OnInit {
         console.log(res)
         // console.log(res)
         // console.log(this.statuses)
-        if (res.Status !== null) {
-          if (res.Status === false) {
+        if (res!==null) {
 
-          }
-        } else {
+
           for (let i = 0; i < res.length; i++) {
 
             // let temp: IRow = {}
@@ -106,10 +104,10 @@ export class TableComponent implements OnInit {
               // else {
               //   // this.file.push(temp)
               // }
+
             }
           }
         }
-
 
         for (let i = 0; i < this.file.length; i++) {
 
@@ -137,7 +135,7 @@ export class TableComponent implements OnInit {
       console.log(error)
     })
 
-    console.log(this.file)
+    // console.log(this.file)
   }
 
   SetComment(i: number) {
