@@ -19,7 +19,7 @@ export class AddUserComponent implements OnInit {
   login: string = ""
   password: string = ""
   phone: string = ""
-
+  isUse:boolean = false
   ngOnInit(): void {
     this.api.getRoles().subscribe((res) => {
       this.roles = res
@@ -44,6 +44,11 @@ export class AddUserComponent implements OnInit {
       console.log(err)
       alert("Ошибка!")
       this.router.navigate(["/admin"])
+    })
+  }
+  CheckUser(login: string){
+    this.api.CheckLogin(login).subscribe((res)=>{
+      this.isUse = res !== false;
     })
   }
 }

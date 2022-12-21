@@ -45,6 +45,10 @@ export class ApiService {
   addUser(user:IUser):Observable<any>{
     return this.httpClient.post<any>(apiDomen+`/admin/add-user`,user,{withCredentials:true})
   }
+  CheckLogin(login:string):Observable<any>{
+    return this.httpClient.post<any>(apiDomen+`/admin/checklogin`,login,{withCredentials:true})
+  }
+
   addPeriod(p:IPeriod):Observable<any>{
     return this.httpClient.post<any>(apiDomen+`/admin/add-period`,p,{withCredentials:true})
   }
