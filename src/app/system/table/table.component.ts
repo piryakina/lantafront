@@ -50,7 +50,11 @@ export class TableComponent implements OnInit {
       this.apiService.getDataPeriodNow().subscribe((res) => {
         // console.log(res)
         // console.log(this.statuses)
-        if (res !== null) {
+        if (res.Status !== null) {
+          if (res.Status === false) {
+
+          }
+        } else {
           for (let i = 0; i < res.length; i++) {
 
             // let temp: IRow = {}
@@ -96,13 +100,15 @@ export class TableComponent implements OnInit {
 
                 // temp.status = res[i].billing[j].status
 
+
               }
+              // else {
+              //   // this.file.push(temp)
+              // }
             }
-            // else {
-            //   // this.file.push(temp)
-            // }
           }
         }
+
 
         for (let i = 0; i < this.file.length; i++) {
 
@@ -167,6 +173,7 @@ export class TableComponent implements OnInit {
     if (id && filename) {
       this.apiService.downloadFileById(id)
         .subscribe(result => {
+          console.log(result)
           let a = document.createElement('a');
           let objectURL = URL.createObjectURL(result);
           a.href = objectURL;
