@@ -20,8 +20,8 @@ export class SpComponent  implements  OnInit {
   monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
     "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
   ];
-
-
+  fileusp:string=""
+  invoicesfile:IFile[]=[]
   ngOnInit(): void {
 
     let today = new Date()
@@ -59,6 +59,14 @@ export class SpComponent  implements  OnInit {
             this.files.push(temp)
             // console.log(res.billing[i].status)
 
+          }
+        }
+        if (res.invoice!==undefined){
+          for (let j=0;j<res.invoice.length;j++){
+            let temp:IFile={}
+            temp.filename=res.invoice[j].filename
+            // emp.path=res.invoice[j].path
+            this.invoicesfile.push(temp)
           }
         }
       }
