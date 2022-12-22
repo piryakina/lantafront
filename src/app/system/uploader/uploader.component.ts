@@ -47,7 +47,7 @@ export class UploaderComponent implements OnInit {
   }
 
   uploadFile(event: any): void {
-    const target = document.getElementById("uploader")
+    // const target = document.getElementById("uploader")
     //let data = new FormData(document.getElementById("form") as HTMLFormElement);
     // @ts-ignore
     //let selectedFile = target.files[0]

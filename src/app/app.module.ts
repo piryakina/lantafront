@@ -22,6 +22,7 @@ import {NgxWebstorageModule} from "ngx-webstorage";
 import { TableComponent } from './system/table/table.component';
 import { AdminPageComponent } from './system/pages/admin-page/admin-page.component';
 import { AddPeriodComponent } from './system/admin/add-period/add-period.component';
+import { UspComponent } from './system/pages/usp/usp.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { AddPeriodComponent } from './system/admin/add-period/add-period.compone
     TableComponent,
     AdminPageComponent,
     AddPeriodComponent,
+    UspComponent,
   ],
   imports: [
     BrowserModule,
