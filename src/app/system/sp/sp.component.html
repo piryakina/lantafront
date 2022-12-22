@@ -14,16 +14,16 @@
 
 <div id="table">
   <div class="progress-icon">
-    <div id="billing" class="progress-item" *ngFor="let item of files">
+    <div id="billing" class="progress-item py-3" *ngFor="let item of files">
       <a>{{item.filename}}</a>
     </div>
-    <div id="status" class="progress-item" *ngFor="let item of files">
+    <div id="status" class="progress-item py-3" *ngFor="let item of files">
       <a>{{item.status}}</a>
     </div>
-    <div id="uspfile" class="progress-item" >
+    <div id="uspfile" class="progress-item py-3" >
       <a>{{fileusp}}</a>
     </div>
-    <div id="invoice" class="progress-item" *ngFor="let item of invoicesfile">
+    <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
       <a>{{item.filename}}</a>
     </div>
   </div>

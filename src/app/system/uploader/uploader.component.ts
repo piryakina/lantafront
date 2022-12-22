@@ -75,8 +75,8 @@ export class UploaderComponent implements OnInit {
           alert("файлы успешно загружены")
           // window.location.href = "http://localhost:4200/sp"
           window.location.href = "http://sp.lantaservice.com:4200/sp" //todo
-        }, (err) => {
-          console.error(err)
+        }, ()=>{
+          alert("ошибка!")
         })
       } else if (this.url === "/sp/invoice") {
         this.apiService.uploadFileInvoice(data).subscribe((res) => {
@@ -84,8 +84,8 @@ export class UploaderComponent implements OnInit {
           alert("файлы успешно загружены")
           // window.location.href = "http://localhost:4200/sp"
           window.location.href = "http://sp.lantaservice.com:4200/sp" //todo
-        }, (err) => {
-          console.error(err)
+        }, ()=>{
+          alert("ошибка!")
         })
 
       } else if (this.url === "/admin/add-news"){
@@ -94,6 +94,15 @@ export class UploaderComponent implements OnInit {
           alert("файлы успешно загружены")
           // window.location.href = "http://localhost:4200/admin"
           window.location.href = "http://sp.lantaservice.com:4200/admin" //todo
+        }, ()=>{
+          alert("ошибка!")
+        })
+      } else if (this.url === "/usp/sla"){
+        this.apiService.uploadFileSLA(data).subscribe((res)=>{
+          alert("файлы успешно загружены")
+          window.location.href = "http://sp.lantaservice.com:4200/usp" //todo
+        }, ()=>{
+          alert("ошибка!")
         })
       }
 

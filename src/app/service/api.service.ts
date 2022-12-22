@@ -39,6 +39,9 @@ export class ApiService {
   uploadFileAttachment(data:any):Observable<any>{
     return this.httpClient.post(apiDomen+'/attachment/upload',data,{withCredentials:true})
   }
+  uploadFileSLA(data:any):Observable<any>{
+    return this.httpClient.post(apiDomen+'/usp/sla',data,{withCredentials:true})
+  }
   getRoles():Observable<any>{
     return this.httpClient.get(apiDomen+`/roles`,{withCredentials:true})
   }

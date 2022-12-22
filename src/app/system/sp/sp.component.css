@@ -79,3 +79,7 @@ app-menu{
   float:right;
   border-left: 0.5vw solid #2A6879;
 }
+.progress-item{
+  font-size: 20px;
+  margin-left: 2%;
+}
