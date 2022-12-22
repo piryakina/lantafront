@@ -31,5 +31,5 @@ div .cont_img{
   /*padding: 3px;*/
     width: inherit;
     height: inherit;
-  object-fit: cover;
+  object-fit: contain;
 }
