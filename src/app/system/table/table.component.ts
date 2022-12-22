@@ -146,7 +146,7 @@ export class TableComponent implements OnInit {
     console.log(a)
     let idSt: any
     for (let i = 0; i < this.statuses.length; i++) {
-      if (this.statuses[i].status_name === a) {
+      if (this.statuses[i].status_name == a) {
         if (this.statuses[i].id !== undefined) {
           idSt = this.statuses[i].id
         }
