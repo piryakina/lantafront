@@ -7,14 +7,17 @@
 a{
   text-decoration: none;
 }
-img{
-width: max-content;
-  height: max-content;
-  float: left;
-  margin: 3px;
-  padding: 3px;
-  object-fit: cover;
-}
+/*img{*/
+
+/*  width: 100%;*/
+/*  min-width: 20vw;*/
+/*  min-height: 38vh;*/
+/*  height: 100%;*/
+/*  float: left;*/
+/*  margin: 3px;*/
+/*  padding: 3px;*/
+/*  object-fit: cover;*/
+/*}*/
 .border-bottom{
   float: left;
 }
@@ -25,7 +28,10 @@ width: max-content;
 .img-fluid{
   object-fit: cover;
   width: 100%;
-  min-width: 20vw;
-  min-height: 38vh;
+height: 100%;
 
+}
+.cont_img{
+  width: 20vw;
+  height: 38vh;
 }
