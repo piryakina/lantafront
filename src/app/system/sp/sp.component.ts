@@ -29,7 +29,7 @@ export class SpComponent  implements  OnInit {
     // this.month=today.getMonth().toString()
     const d = new Date();
     this.month= this.monthNames[d.getMonth()]
-    console.log(this.month)
+    // console.log(this.month)
     this.visible = today.getDate() >= 15;
     this.url=this.router.url
     // console.log(this.url)
@@ -49,7 +49,7 @@ export class SpComponent  implements  OnInit {
       if (res!==null){
         if (res.billing!==undefined){
           for (let i=0;i<res.billing.length;i++){
-            console.log(res.billing[i])
+            // console.log(res.billing[i])
             let temp:IFile={}
             temp.period=res.period
             temp.filename=res.billing[i].filename

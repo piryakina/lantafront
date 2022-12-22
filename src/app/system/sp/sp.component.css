@@ -70,3 +70,12 @@ app-menu{
 .progress-bar{
   height: 100%;
 }
+.progress-icon{
+  margin-top:0;
+  min-width: 30vw;
+  min-height: 100vh;
+  width: 30%;
+  height: 100%;
+  float:right;
+  border-left: 0.5vw solid #2A6879;
+}

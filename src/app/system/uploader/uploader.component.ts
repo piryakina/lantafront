@@ -71,7 +71,7 @@ export class UploaderComponent implements OnInit {
       if (this.url === "/sp/billing") {
 
         this.apiService.uploadFileBilling(data).subscribe((res) => {
-          console.log(res)
+          // console.log(res)
           alert("файлы успешно загружены")
           // window.location.href = "http://localhost:4200/sp"
           window.location.href = "http://sp.lantaservice.com:4200/sp" //todo
@@ -80,7 +80,7 @@ export class UploaderComponent implements OnInit {
         })
       } else if (this.url === "/sp/invoice") {
         this.apiService.uploadFileInvoice(data).subscribe((res) => {
-          console.log(res)
+          // console.log(res)
           alert("файлы успешно загружены")
           // window.location.href = "http://localhost:4200/sp"
           window.location.href = "http://sp.lantaservice.com:4200/sp" //todo
@@ -90,7 +90,7 @@ export class UploaderComponent implements OnInit {
 
       } else if (this.url === "/admin/add-news"){
         this.apiService.uploadFileAttachment(data).subscribe((res)=>{
-          console.log(res)
+          // console.log(res)
           alert("файлы успешно загружены")
           // window.location.href = "http://localhost:4200/admin"
           window.location.href = "http://sp.lantaservice.com:4200/admin" //todo
