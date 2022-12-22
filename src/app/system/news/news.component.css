@@ -7,17 +7,15 @@
 a{
   text-decoration: none;
 }
-/*img{*/
+img{
 
-/*  width: 100%;*/
-/*  min-width: 20vw;*/
-/*  min-height: 38vh;*/
-/*  height: 100%;*/
-/*  float: left;*/
-/*  margin: 3px;*/
-/*  padding: 3px;*/
-/*  object-fit: cover;*/
-/*}*/
+  width: 100%;
+  height: 100%;
+  float: left;
+  margin: 3px;
+  padding: 3px;
+  object-fit: cover;
+}
 .border-bottom{
   float: left;
 }
@@ -28,7 +26,7 @@ a{
 .img-fluid{
   object-fit: cover;
   width: 100%;
-height: 100%;
+  height: 100%;
 
 }
 .cont_img{
