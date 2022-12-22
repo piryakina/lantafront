@@ -28,5 +28,7 @@ a{
   /*float: left;*/
   /*margin: 3px;*/
   /*padding: 3px;*/
+  width: inherit;
+  height: inherit;
   object-fit: cover;
 }
