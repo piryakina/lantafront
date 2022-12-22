@@ -69,7 +69,7 @@
   <section>
     <div class="row gx-lg-5">
 
-      <ng-container  *ngFor="let i of news">
+      <ng-container *ngFor="let i of news">
 
         <div class="col-lg-4 col-md-11 mb-4 mb-lg-0">
           <!-- News block -->
@@ -82,12 +82,18 @@
 <!--              <img src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>-->
 <!--              <img *ngIf="i.id!==undefined" [src]="getImgNews(i.id)" class="img-fluid"/>-->
 <!--                  <div class="container_img{{i.id}}"></div>-->
+<!--              <img src="{{this.domen}}/news-img?id={{i.id}}" class="img-fluid"/><!-- todo link backend server-->
+              <!-- <img src="http://sp.lantaservice.com:8080/news-img?id={{i.id}}" class="img-fluid"/>-->
+              <!--              <img src="http://localhost:8080/news-img?id={{i.id}}" class="img-fluid"/>-->
+              <!--              <img *ngIf="i.id!==undefined" [src]="getImgNews(i.id)" class="img-fluid"/>-->
+              <!--                  <div class="container_img{{i.id}}"></div>-->
               <div id="img{{i.id}}"></div>
               <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </a>
             </div>
-            <a *ngIf="i.id!==undefined" (click)="getImgNews(i.id)" class="text-dark" data-bs-toggle="collapse" role="button" aria-expanded="false"  href="#collapseExample{{i.id}}">
+            <a *ngIf="i.id!==undefined" (click)="getImgNews(i.id)" class="text-dark" data-bs-toggle="collapse"
+               role="button" aria-expanded="false" href="#collapseExample{{i.id}}">
               <div>
                 <div class="h5">{{i.title}}</div>
                 <div>
@@ -96,7 +102,7 @@
               </div>
               <p *ngIf="i.text!==undefined">
                 <ng-container *ngIf="i.text.length>200">
-                  {{i.text.substring(0,i.text.indexOf(" ",200))}}...
+                  {{i.text.substring(0, i.text.indexOf(" ", 200))}}...
                 </ng-container>
                 <ng-container *ngIf="i.text.length<200">
                   {{i.text}}
@@ -114,7 +120,7 @@
             <div class="row gx-5">
               <div class="col-md-6 mb-4">
                 <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-<!--                  <img *ngIf="i.id!==undefined" src="{{i.attach}}" class="img-fluid"/>-->
+                  <!--                  <img *ngIf="i.id!==undefined" src="{{i.attach}}" class="img-fluid"/>-->
                   <!--          <a href="">-->
                   <!--            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
                   <!--          </a>-->
@@ -134,7 +140,6 @@
           </section>
         </div>
       </ng-container>
-
 
 
     </div>
