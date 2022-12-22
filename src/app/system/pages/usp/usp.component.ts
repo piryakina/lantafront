@@ -26,6 +26,9 @@ export class UspComponent implements OnInit {
             temp.id = res[i].id
             temp.sp = res[i].sp
             temp.period = res[i].period
+          if (res[i].sla!==undefined){
+            temp.sla =res[i].sla
+          }
           this.rows.push(temp)
         }
       }

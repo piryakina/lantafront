@@ -16,21 +16,26 @@
   </tr>
   </thead>
   <tbody>
-<!--  <tr *ngIf="file.length==0">-->
-<!--    <td colspan="6">Файлы еще не загружены...</td>-->
-<!--  </tr>-->
+  <!--  <tr *ngIf="file.length==0">-->
+  <!--    <td colspan="6">Файлы еще не загружены...</td>-->
+  <!--  </tr>-->
 
   <tr *ngFor="let item of rows;let i=index">
 
     <th scope="row">{{item.sp}}</th>
     <td>{{item.period}}</td>
-    <td><app-uploader id="sla2"></app-uploader></td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
+    <td>
+      <ng-container *ngIf="item.sla!==undefined;then Exist else Non"></ng-container>
+      <ng-template #Exist>{{item.sla}}</ng-template>
+      <ng-template #Non>      <app-uploader id="sla2"></app-uploader>
+      </ng-template>
+    </td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
     <!--    <td>{{item.status}}</td>-->
-<!--    <td id="downloadFile" title="скачать файл" (click)="downloadFile(i)">{{item.filename}}</td>-->
-<!--    <td>-->
-<!--      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)"-->
-<!--                placeholder="Введите замечания"></textarea>-->
-<!--    </td>-->
+    <!--    <td id="downloadFile" title="скачать файл" (click)="downloadFile(i)">{{item.filename}}</td>-->
+    <!--    <td>-->
+    <!--      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)"-->
+    <!--                placeholder="Введите замечания"></textarea>-->
+    <!--    </td>-->
   </tr>
   <!--    <tr>-->
   <!--      <th scope="row">2</th>-->

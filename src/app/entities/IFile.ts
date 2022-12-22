@@ -13,8 +13,9 @@ export interface IRow{
   status?:string,
   period?:string,
   idFile?:number,
-  date?:string
-  comment?:string
+  date?:string,
+  comment?:string,
+  sla?:string
 }
 export interface IStatus{
   id?:number,
