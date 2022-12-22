@@ -17,7 +17,7 @@ export class UspComponent implements OnInit {
   ngOnInit(): void {
     this.url = this.router.url
     this.apiService.getDataPeriodNow().subscribe((res) => {
-      // console.log(res)
+       console.log(res)
       // console.log(res)
       // console.log(this.statuses)
       if (res !== null) {
@@ -26,9 +26,7 @@ export class UspComponent implements OnInit {
             temp.id = res[i].id
             temp.sp = res[i].sp
             temp.period = res[i].period
-          if (res[i].sla!==undefined){
-            temp.sla =res[i].sla
-          }
+            temp.sla =res[i].sla.filename
           this.rows.push(temp)
         }
       }
