@@ -7,15 +7,6 @@
 a{
   text-decoration: none;
 }
-img{
-
-  width: 100%;
-  height: 100%;
-  float: left;
-  margin: 3px;
-  padding: 3px;
-  object-fit: cover;
-}
 .border-bottom{
   float: left;
 }
@@ -32,4 +23,12 @@ img{
 .cont_img{
   width: 20vw;
   height: 38vh;
+}
+.pic_news{
+  width: 100%;
+  height: 100%;
+  /*float: left;*/
+  /*margin: 3px;*/
+  /*padding: 3px;*/
+  object-fit: cover;
 }

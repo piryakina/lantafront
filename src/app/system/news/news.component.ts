@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {apiDomen, ApiService} from "../../service/api.service";
 import {IAttach, INews} from "../../entities/INews";
-import {Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -54,7 +53,7 @@ export class NewsComponent implements OnInit {
               // let all=document.getElementById("img_full"+item.id)
               if (im!==null){
                 let pic = document.createElement("img")
-                pic.className="img-fluid"
+                pic.className="pic_news"
                 pic.src=item.link
                 im.append(pic)
             }
