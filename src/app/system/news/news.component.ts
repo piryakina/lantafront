@@ -51,7 +51,7 @@ export class NewsComponent implements OnInit {
             if (res!==null){
               item.link=URL.createObjectURL(res)
               let im=document.getElementById("img"+item.id)
-              let all=document.getElementById("img_full"+item.id)
+              // let all=document.getElementById("img_full"+item.id)
               if (im!==null){
                 let pic = document.createElement("img")
                 pic.className="img-fluid"

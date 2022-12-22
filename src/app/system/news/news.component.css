@@ -24,3 +24,7 @@ img{
   color:#0D27D4;
   font-weight: bold;
 }
+.img-fluid{
+  width: 150px;
+  height: 150px;
+}
