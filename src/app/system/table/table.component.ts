@@ -45,7 +45,7 @@ export class TableComponent implements OnInit {
       }
 
       this.apiService.getDataPeriodNow().subscribe((res) => {
-        console.log(res)
+        // console.log(res)
         // console.log(res)
         // console.log(this.statuses)
         if (res!==null) {
@@ -143,7 +143,7 @@ export class TableComponent implements OnInit {
   }
 
   SetStatusNow(a: string | undefined, i: number) {
-    // console.log(a)
+    console.log(a)
     let idSt: any
     for (let i = 0; i < this.statuses.length; i++) {
       if (this.statuses[i].status_name === a) {
@@ -154,8 +154,8 @@ export class TableComponent implements OnInit {
     }
     let fileId = this.file[i].idFile
     if (fileId !== undefined && idSt !== undefined) {
-      this.apiService.setStatus(fileId, idSt).subscribe((res) => {
-        console.log(res)
+      this.apiService.setStatus(fileId, idSt).subscribe(() => {
+
         alert("статус изменен")
       }, error=>{
         console.log(error)
@@ -165,10 +165,10 @@ export class TableComponent implements OnInit {
   }
 
   downloadFile(i: number) {
-    console.log(i)
+    // console.log(i)
     const id = this.file[i].idFile
     const filename = this.file[i].filename
-    console.log(id)
+    // console.log(id)
     if (id && filename) {
       this.apiService.downloadFileById(id)
         .subscribe(result => {
