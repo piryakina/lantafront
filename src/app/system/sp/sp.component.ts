@@ -54,6 +54,7 @@ export class SpComponent  implements  OnInit {
             temp.filename=res.billing[i].filename
             temp.status=res.billing[i].status
             temp.date=res.billing[i].date
+            temp.comm =res.billing[i].comments
             this.files.push(temp)
             // console.log(res.billing[i].status)
 
