@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
     };
     this.apiService.login(user).subscribe((result) => {
       if (result.status === true) {
-        console.log("success")
-        console.log(result)
+        // console.log("success")
+        // console.log(result)
         this.storage.store("id", result.id)
         this.storage.store("login", this.login)
         this.storage.store("role", result.role)
@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
       } else {
         alert('вы не авторизованы! введите правильные имя пользователя и пароль');
       }
+    }, ()=>{
+      alert("вы не авторизованы! введите правильные имя пользователя и пароль")
     });
   }
 }
