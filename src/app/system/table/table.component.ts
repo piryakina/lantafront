@@ -49,15 +49,7 @@ export class TableComponent implements OnInit {
         // console.log(res)
         // console.log(this.statuses)
         if (res!==null) {
-
-
           for (let i = 0; i < res.length; i++) {
-
-            // let temp: IRow = {}
-            // temp.sp = res[i].sp
-            // temp.period = res[i].period
-            // console.log(res[i].billing)
-
             if (res[i].billing !== undefined) {
               for (let j = 0; j < res[i].billing.length; j++) {
                 let temp: IRow = {}
@@ -93,15 +85,7 @@ export class TableComponent implements OnInit {
                     }
                   }
                 }
-
-                // temp.status = res[i].billing[j].status
-
-
               }
-              // else {
-              //   // this.file.push(temp)
-              // }
-
             }
           }
         }

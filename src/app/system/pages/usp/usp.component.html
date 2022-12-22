@@ -1,8 +1,52 @@
-<div *ngIf="url==='/usp'" class="first">
-  <a routerLink="/usp/sla"><span class="label fs-4 fw-bold px-5 py-3">Загрузить SLA</span></a>
-</div>
+<!--<div *ngIf="url==='/usp'" class="first">-->
+<!--  <a routerLink="/usp/sla"><span class="label fs-4 fw-bold px-5 py-3">Загрузить SLA</span></a>-->
+<!--</div>-->
 
-<div *ngIf="url==='/usp/sla'" class="first">
-  <label class="label fs-4 fw-bold px-5 py-3">Загрузить SLA</label>
-  <app-uploader id="sla2"></app-uploader>
-</div>
+<!--<div *ngIf="url==='/usp/sla'" class="first">-->
+<!--  <label class="label fs-4 fw-bold px-5 py-3">Загрузить SLA</label>-->
+<!--  <app-uploader id="sla1"></app-uploader>-->
+<!--</div>-->
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Название СП</th>
+    <th scope="col">Период</th>
+    <th scope="col">Загрузить файл</th>
+    <th scope="col">Согласовано</th>
+  </tr>
+  </thead>
+  <tbody>
+<!--  <tr *ngIf="file.length==0">-->
+<!--    <td colspan="6">Файлы еще не загружены...</td>-->
+<!--  </tr>-->
+
+  <tr *ngFor="let item of rows;let i=index">
+
+    <th scope="row">{{item.sp}}</th>
+    <td>{{item.period}}</td>
+    <td><app-uploader id="sla2"></app-uploader></td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
+    <!--    <td>{{item.status}}</td>-->
+<!--    <td id="downloadFile" title="скачать файл" (click)="downloadFile(i)">{{item.filename}}</td>-->
+<!--    <td>-->
+<!--      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)"-->
+<!--                placeholder="Введите замечания"></textarea>-->
+<!--    </td>-->
+  </tr>
+  <!--    <tr>-->
+  <!--      <th scope="row">2</th>-->
+  <!--      <td>Jacob</td>-->
+  <!--      <td>Thornton</td>-->
+  <!--      <td>@fat</td>-->
+  <!--      <td>Thornton</td>-->
+  <!--      <td>@fat</td>-->
+  <!--    </tr>-->
+  <!--    <tr>-->
+  <!--      <th scope="row">3</th>-->
+  <!--      <td>Larry</td>-->
+  <!--      <td>the Bird</td>-->
+  <!--      <td>@twitter</td>-->
+  <!--      <td>Thornton</td>-->
+  <!--      <td>@fat</td>-->
+  <!--    </tr>-->
+  </tbody>
+</table>
