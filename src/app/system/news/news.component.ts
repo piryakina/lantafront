@@ -54,6 +54,7 @@ export class NewsComponent implements OnInit {
               if (im!==null){
                 let pic = document.createElement("img")
                 pic.className="pic_news"
+                pic.style.objectFit="cover"
                 pic.src=item.link
                 im.append(pic)
             }
