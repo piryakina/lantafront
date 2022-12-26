@@ -69,6 +69,10 @@ export class SpComponent  implements  OnInit {
             this.invoicesfile.push(temp)
           }
         }
+        if (res.sla!==undefined){
+          let temp:IFile={}
+          temp.filename=res.sla.filename
+        }
       }
 
       // this.files.sort(compare())
