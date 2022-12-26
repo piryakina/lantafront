@@ -7,7 +7,7 @@
     <ng-template #Null><label class="navbar-brand m-5 h1 fw-bold fs-4"></label></ng-template>
     <div class="navbar-brand-bottom">
       <div *ngIf="visible" class="upload-label">
-        <p class="text-center h4 px-5 py-3">Загрузка файлов по отчётному периоду возможна с 15 по 25 {{month}}</p>
+        <p class="text-center w-25 h4 px-5 py-3">Загрузка файлов по отчётному периоду возможна с 15 по 25 {{month}}</p>
         <div *ngIf="url==='/sp/billing'" class="first">
           <label class="label fs-4 fw-bold px-5 py-3">Загрузить биллинги</label>
           <app-uploader id="billing1"></app-uploader>
