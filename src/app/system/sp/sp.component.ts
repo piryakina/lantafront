@@ -70,8 +70,6 @@ export class SpComponent  implements  OnInit {
           }
         }
         if (res.sla!==undefined){
-          let temp:IFile={}
-          console.log(res.sla)
           this.fileusp=res.sla.filename
         }
       }
