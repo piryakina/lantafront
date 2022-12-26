@@ -82,7 +82,7 @@ export class SpComponent implements OnInit {
     //     console.log(true)
     //   }
     // }
-    console.log(this.fileusp)
+    // console.log(this.fileusp)
   }
 
   compare(object1: IFile, object2: IFile) {
