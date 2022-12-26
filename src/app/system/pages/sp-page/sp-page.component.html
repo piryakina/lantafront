@@ -3,8 +3,8 @@
 <div id="a-table">
   <div class="navbar-brand p-3 h1 fw-bold fs-3" href="#">
     <div *ngIf="name!=='';then Name else Null"></div>
-    <ng-template #Name><div class="navbar-br"><span class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</span></div></ng-template>
-    <ng-template #Null><div class="navbar-br"><span class="navbar-brand m-5 h1 fw-bold fs-4"></span></div></ng-template>
+    <ng-template #Name><label class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</label></ng-template>
+    <ng-template #Null><label class="navbar-brand m-5 h1 fw-bold fs-4"></label></ng-template>
   </div>
   <div class="navbar-brand-bottom">
     <div *ngIf="visible" class="upload-label">
