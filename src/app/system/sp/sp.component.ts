@@ -177,7 +177,8 @@ export class SpComponent implements OnInit {
 
   changeChoosed(value:boolean) {
     this.choosed = value
-    console.log(this.choosed)
+  }
+  changeSLAStatus(){
 
   }
 }

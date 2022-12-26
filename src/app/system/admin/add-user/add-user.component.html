@@ -17,14 +17,14 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput3">Логин</label>
-      <input (blur)="CheckUser(login)" [(ngModel)]="login" name="login" type="text" class="form-control" id="exampleFormControlInput3" placeholder="Логин" required>
+      <input (blur)="CheckUser(login)" [(ngModel)]="login" name="login" type="text" class="form-control" id="exampleFormControlInput3" placeholder="Логин" required minlength="5">
       <div *ngIf="!isUse" class="invalid-feedback">
         Пользователь с таким логином уже существует.
       </div>
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput5">Телефон</label>
-      <input [(ngModel)]="phone" name="phone" type="text" class="form-control" id="exampleFormControlInput5" placeholder="+79876543210" required>
+      <input [(ngModel)]="phone" name="phone" type="text" class="form-control" id="exampleFormControlInput5" placeholder="+79876543210" required minlength="10">
       <div class="invalid-feedback">
       Обязательное поле.
       </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput4">Пароль</label>
-      <input [(ngModel)]="password" name="pwd" type="password" class="form-control" id="exampleFormControlInput4" required>
+      <input [(ngModel)]="password" name="pwd" type="password" class="form-control" id="exampleFormControlInput4" required minlength="8">
     </div>
     <div class="invalid-feedback">
       Обязательное поле.
