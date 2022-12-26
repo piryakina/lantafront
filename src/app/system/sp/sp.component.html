@@ -25,26 +25,37 @@
     <div id="uspfile" class="progress-item py-3">
       <a (click)="downloadSLA(fileuspid,fileusp)">{{fileusp}}</a>
       <br>
-      <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
-      <div>
-        <form>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              Да
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Нет
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary" (click)="$event">Отправить</button>
+      <ng-container *ngIf="agreed==null;then Null else Some"></ng-container>
+      <ng-template #Some>
+        <ng-container *ngIf="agreed;then Yes else No"></ng-container>
+        <ng-template #Yes>
+          <span class="navbar-brand h1 fw-bold fs-6">Согласовано</span>
+        </ng-template>
+        <ng-template #No>
+          <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>
+        </ng-template>
+      </ng-template>
+      <ng-template #Null>
+        <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
+        <div>
+          <form>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                Да
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Нет
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
+          </form>
+        </div>
+      </ng-template>
 
-        </form>
-
-      </div>
     </div>
     <div class="circle"></div>
     <span class="navbar-brand m-5 h1 fw-bold fs-4">Счета</span>

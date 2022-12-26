@@ -113,6 +113,12 @@ export class ApiService {
         .set("id", id)
     })
   }
+  setApprove(idFile:number, approve: boolean):Observable<any>{
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id",idFile);
+    queryParams = queryParams.append("approve",approve);
+    return this.httpClient.get(apiDomen+`/approve-sla`,{params:queryParams, withCredentials:true})
+  }
   // //регистрация
   // signup(user: IUser): Observable<any> {
   //   return this.httpClient.post<IAnswer>(apiDomen + '/sign-up', user, {withCredentials: true});

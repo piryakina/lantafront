@@ -9,77 +9,81 @@ import {IFile} from "../../entities/IFile";
   templateUrl: './sp.component.html',
   styleUrls: ['./sp.component.css']
 })
-export class SpComponent  implements  OnInit {
-  constructor(private router: Router, private storage: LocalStorageService, private apiService:ApiService) {
+export class SpComponent implements OnInit {
+  constructor(private router: Router, private storage: LocalStorageService, private apiService: ApiService) {
   }
-  files:IFile[] =[]
-  status:string[]=[]
-  url:string=""
-  visible:boolean=false;
-  month:string=""
+
+  files: IFile[] = []
+  status: string[] = []
+  url: string = ""
+  visible: boolean = false;
+  month: string = ""
   monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
     "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
   ];
-  fileusp:string=""
-  fileuspid:number=0
-  invoicesfile:IFile[]=[]
+  fileusp: string = ""
+  fileuspid: number = 0
+  agreed: boolean | null = null
+  invoicesfile: IFile[] = []
+
   ngOnInit(): void {
 
     let today = new Date()
     // console.log(today.getMonth()+1, today.getDate())
     // this.month=today.getMonth().toString()
     const d = new Date();
-    this.month= this.monthNames[d.getMonth()]
+    this.month = this.monthNames[d.getMonth()]
     // console.log(this.month)
     this.visible = today.getDate() >= 15;
-    this.url=this.router.url
+    this.url = this.router.url
     // console.log(this.url)
-    this.apiService.getStatuses().subscribe((res)=>{
+    this.apiService.getStatuses().subscribe((res) => {
       // console.log(res)
-      if (res!==null){
-        for (let i=0;i<res.length;i++){
+      if (res !== null) {
+        for (let i = 0; i < res.length; i++) {
           this.status.push(res[i].status_name)
         }
       }
       // console.log(this.status)
-    },(err)=>{
+    }, (err) => {
       console.log(err)
     })
-    this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res)=>{
-       // console.log(res)
-      if (res!==null){
-        if (res.billing!==undefined){
-          for (let i=0;i<res.billing.length;i++){
+    this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res) => {
+      // console.log(res)
+      if (res !== null) {
+        if (res.billing !== undefined) {
+          for (let i = 0; i < res.billing.length; i++) {
             // console.log(res.billing[i])
-            let temp:IFile={}
-            temp.id=res.billing[i].id
-            temp.period=res.period
-            temp.filename=res.billing[i].filename
-            temp.status=res.billing[i].status
-            temp.date=res.billing[i].date
-            temp.comm =res.billing[i].comments
+            let temp: IFile = {}
+            temp.id = res.billing[i].id
+            temp.period = res.period
+            temp.filename = res.billing[i].filename
+            temp.status = res.billing[i].status
+            temp.date = res.billing[i].date
+            temp.comm = res.billing[i].comments
             this.files.push(temp)
             // console.log(res.billing[i].status)
 
           }
         }
-        if (res.invoice!==undefined){
-          for (let j=0;j<res.invoice.length;j++){
-            let temp:IFile={}
-            temp.id=res.invoice[j].id
-            temp.filename=res.invoice[j].filename
+        if (res.invoice !== undefined) {
+          for (let j = 0; j < res.invoice.length; j++) {
+            let temp: IFile = {}
+            temp.id = res.invoice[j].id
+            temp.filename = res.invoice[j].filename
             // emp.path=res.invoice[j].path
             this.invoicesfile.push(temp)
           }
         }
-        if (res.sla!==undefined){
-          this.fileusp=res.sla.filename
-          this.fileuspid=res.sla.id
+        if (res.sla !== undefined) {
+          this.fileusp = res.sla.filename
+          this.fileuspid = res.sla.id
+          this.agreed = res.sla.is_agreed
         }
       }
 
       // this.files.sort(compare())
-    }, (err)=>{
+    }, (err) => {
       console.error(err)
     })
     // for (let i=0;i<this.files.length;i++){
@@ -89,8 +93,9 @@ export class SpComponent  implements  OnInit {
     //   }
     // }
   }
-  compare( object1: IFile, object2:IFile){
-    if (object1!==undefined && object2!==undefined &&object1.status!==undefined && object2.status!==undefined){
+
+  compare(object1: IFile, object2: IFile) {
+    if (object1 !== undefined && object2 !== undefined && object1.status !== undefined && object2.status !== undefined) {
       if (object1.status < object2.status)
         return -1;
       if (object1.status > object2.status)
@@ -98,12 +103,13 @@ export class SpComponent  implements  OnInit {
     }
     return 0;
   }
-  downloadBilling(id: number,filename:string ) {
+
+  downloadBilling(id: number, filename: string) {
     // console.log(i)
     // const id = this.files[i].id
     //  const filename = this.files[i].filename
     // console.log(id)
-    if (id!==null) {
+    if (id !== null) {
       this.apiService.downloadFileById(id)
         .subscribe(result => {
           // console.log(result)
@@ -122,8 +128,9 @@ export class SpComponent  implements  OnInit {
       alert("Файл указан неверно")
     }
   }
-  downloadSLA(id: number,filename:string ) {
-    if (id!==null) {
+
+  downloadSLA(id: number, filename: string) {
+    if (id !== null) {
       this.apiService.downloadSLAById(id)
         .subscribe(result => {
           // console.log(result)
@@ -142,8 +149,9 @@ export class SpComponent  implements  OnInit {
       alert("Файл указан неверно")
     }
   }
-  downloadInvoice(id: number,filename:string ) {
-    if (id!==null) {
+
+  downloadInvoice(id: number, filename: string) {
+    if (id !== null) {
       this.apiService.downloadInvoiceById(id)
         .subscribe(result => {
           // console.log(result)
@@ -160,6 +168,23 @@ export class SpComponent  implements  OnInit {
         })
     } else {
       alert("Файл указан неверно")
+    }
+  }
+
+  approveSla(idFile: number) {
+    let t1 = document.getElementById("gridRadios1")
+    if (t1 !== null) {
+      console.log(t1.getAttribute("checked"))
+
+      //   this.apiService.setApprove(idFile,approve).subscribe(res=>{
+      //     if (res.status){
+      //       alert("статус успешно изменен")
+      //     }
+      //   },err=>{
+      //     alert("ошибка")
+      //     console.log(err)
+      //   })
+      // }
     }
   }
 }
