@@ -23,10 +23,14 @@ app-menu{
   color: #1160D6;
   font-weight: bold;
   margin: 0;
-  width:20%;
+  width:60%;
   height: 40px;
   float: left;
 }
 app-sp{
+  float: left;
+}
+.progress-sp{
+  width: 40%;
   float: left;
 }

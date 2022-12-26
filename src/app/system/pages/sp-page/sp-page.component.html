@@ -3,8 +3,10 @@
 <div id="a-table">
   <div class="navbar-brand px-5 h1 fw-bold fs-3" href="#">
     <div *ngIf="name!=='';then Name else Null"></div>
-    <ng-template #Name><span class="navbar-brand h1 fw-bold fs-4">{{name}}</span></ng-template>
-    <ng-template #Null><span class="navbar-brand h1 fw-bold fs-4"></span></ng-template>
+    <ng-template #Name><div class="navbar-br"><span class="navbar-brand h1 fw-bold fs-4">{{name}}</span></div></ng-template>
+    <ng-template #Null><div class="navbar-br"><span class="navbar-brand h1 fw-bold fs-4"></span></div></ng-template>
   </div>
-  <app-sp></app-sp>
+  <div class="progress-sp">
+    <app-sp></app-sp>
+  </div>
 </div>
