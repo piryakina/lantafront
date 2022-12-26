@@ -38,24 +38,30 @@
           </ng-template>
         </ng-template>
         <ng-template #Null>
-          <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
-          <div>
-            <form>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-                <label class="form-check-label" for="gridRadios1">
-                  Да
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                  Нет
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
-            </form>
-          </div>
+          <ng-container *ngIf="fileusp!=='';then Ask else No"></ng-container>
+          <ng-template #Ask>
+            <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
+            <div>
+              <form>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                  <label class="form-check-label" for="gridRadios1">
+                    Да
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                  <label class="form-check-label" for="gridRadios2">
+                    Нет
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
+              </form>
+            </div>
+          </ng-template>
+          <ng-template #No>
+            <span class="navbar-brand h1 fw-bold fs-6">Нет файлов</span>
+          </ng-template>
         </ng-template>
 
       </div>
