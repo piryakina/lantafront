@@ -106,7 +106,7 @@ export class SpComponent  implements  OnInit {
     if (id!==null) {
       this.apiService.downloadFileById(id)
         .subscribe(result => {
-          console.log(result)
+          // console.log(result)
           let a = document.createElement('a');
           let objectURL = URL.createObjectURL(result);
           a.href = objectURL;
@@ -126,7 +126,7 @@ export class SpComponent  implements  OnInit {
     if (id!==null) {
       this.apiService.downloadSLAById(id)
         .subscribe(result => {
-          console.log(result)
+          // console.log(result)
           let a = document.createElement('a');
           let objectURL = URL.createObjectURL(result);
           a.href = objectURL;
@@ -146,7 +146,7 @@ export class SpComponent  implements  OnInit {
     if (id!==null) {
       this.apiService.downloadInvoiceById(id)
         .subscribe(result => {
-          console.log(result)
+          // console.log(result)
           let a = document.createElement('a');
           let objectURL = URL.createObjectURL(result);
           a.href = objectURL;

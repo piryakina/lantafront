@@ -15,14 +15,32 @@
 <div id="table">
   <div class="progress-icon">
     <div class="circle"></div>
+    <span class="navbar-brand m-5 h1 fw-bold fs-4">Биллинги</span>
     <div id="billing" class="progress-item py-3" *ngFor="let item of files">
       <a *ngIf="item.id!==undefined && item.filename!==undefined" (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
     </div>
     <div class="circle"></div>
+    <span class="navbar-brand m-5 h1 fw-bold fs-4">Согласование SLA</span>
     <div id="uspfile" class="progress-item py-3" >
       <a (click)="downloadSLA(fileuspid,fileusp)">{{fileusp}}</a>
+      <span>Согласовать?</span>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Да
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+          <label class="form-check-label" for="gridRadios2">
+            Нет
+          </label>
+        </div>
+      </div>
     </div>
     <div class="circle"></div>
+    <span class="navbar-brand m-5 h1 fw-bold fs-4">Счета</span>
     <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
       <a *ngIf="item.id!==undefined && item.filename!==undefined" (click)="downloadInvoice(item.id,item.filename)">{{item.filename}}</a>
     </div>
