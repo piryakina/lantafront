@@ -29,4 +29,5 @@ app-menu{
 }
 app-sp{
 display: inline-flex;
+  float: left;
 }
