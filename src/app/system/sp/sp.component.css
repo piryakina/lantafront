@@ -71,7 +71,7 @@ app-menu{
   height: 100%;
 }
 .progress-icon{
-  margin-top:2vh;
+  margin-top:0;
   min-width: 30vw;
   min-height: 100vh;
   width: 30%;
@@ -84,6 +84,7 @@ app-menu{
   margin-left: 2%;
 }
 .circle{
+  margin-top: 2vh;
   margin-left: -1vw;
   height: 1.5vw;
   width: 1.5vw;
