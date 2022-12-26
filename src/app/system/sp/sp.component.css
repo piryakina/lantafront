@@ -84,8 +84,8 @@ app-menu{
   margin-left: 2%;
 }
 .circle{
-  height: 1vw;
-  width: 1vw;
+  height: 2vw;
+  width: 2vw;
   border-radius: 50%;
   background-color: #2A6879;
 }
