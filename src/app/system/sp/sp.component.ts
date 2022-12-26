@@ -19,8 +19,9 @@ export class SpComponent implements OnInit {
   fileusp: string = ""
   fileuspid: number = 0
   agreed: boolean | null = null
-  none:boolean=false
+  none: boolean = false
   invoicesfile: IFile[] = []
+  choosed: boolean = false
 
   ngOnInit(): void {
 
@@ -38,7 +39,7 @@ export class SpComponent implements OnInit {
       console.log(err)
     })
     this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res) => {
-      this.none=true
+      this.none = true
       if (res !== null) {
         if (res.billing !== undefined) {
           for (let i = 0; i < res.billing.length; i++) {
@@ -74,7 +75,7 @@ export class SpComponent implements OnInit {
       // this.files.sort(compare())
     }, (err) => {
       // console.log(err)
-      this.none=false
+      this.none = false
     })
     // for (let i=0;i<this.files.length;i++){
     //   console.log(this.files[i].status)
@@ -163,20 +164,20 @@ export class SpComponent implements OnInit {
   }
 
   approveSla(idFile: number) {
-    let t1 = document.getElementById("gridRadios1")
-    if (t1 !== null) {
-      console.log(t1.getAttribute("checked"))
 
-      //   this.apiService.setApprove(idFile,approve).subscribe(res=>{
-      //     if (res.status){
-      //       alert("статус успешно изменен")
-      //     }
-      //   },err=>{
-      //     alert("ошибка")
-      //     console.log(err)
-      //   })
-      // }
-    }
+    this.apiService.setApprove(idFile, this.choosed).subscribe(res => {
+      if (res.status) {
+        alert("статус успешно изменен")
+      }
+    }, err => {
+      alert("ошибка")
+      console.log(err)
+    })
+  }
+
+  changeChoosed(value:boolean) {
+    console.log(this.choosed)
+    this.choosed = value
   }
 }
 
