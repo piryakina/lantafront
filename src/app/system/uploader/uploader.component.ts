@@ -66,6 +66,9 @@ export class UploaderComponent implements OnInit {
       if (this.url === "/admin/add-news") {
         data.append("id_news", this.storage.retrieve("newsId"))
       }
+      if (this.url ==="/usp"){
+        data.append("sp", this.storage.retrieve("spId"))
+      }
       // data.append("status", "1")
       data.append("file", this.files[i], this.files[i].name)
       if (this.url === "/sp/billing") {

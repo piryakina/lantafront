@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {IRow} from "../../../entities/IFile";
 import {ApiService} from "../../../service/api.service";
+import {LocalStorageService} from "ngx-webstorage";
 
 @Component({
   selector: 'app-usp',
@@ -9,11 +10,10 @@ import {ApiService} from "../../../service/api.service";
   styleUrls: ['./usp.component.css']
 })
 export class UspComponent implements OnInit {
-  constructor(private router: Router, private apiService: ApiService) {
+  constructor(private router: Router, private apiService: ApiService, private storage: LocalStorageService) {
   }
   rows:IRow[]=[]
   url: string = ""
-
   ngOnInit(): void {
     this.url = this.router.url
     this.apiService.getDataPeriodNow().subscribe((res) => {
@@ -34,6 +34,8 @@ export class UspComponent implements OnInit {
       alert("ошибка")
     })
   }
-
+  SetSP(idSp:number){
+    this.storage.store("spId",idSp)
+  }
 }
 
