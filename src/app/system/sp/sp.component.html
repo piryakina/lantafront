@@ -16,7 +16,7 @@
   <div class="progress-icon">
     <div class="circle"></div>
     <div id="billing" class="progress-item py-3" *ngFor="let item of files;let i=index">
-      <a (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
+      <a *ngIf="item.id!==undefined" (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
     </div>
     <div class="circle"></div>
     <div id="uspfile" class="progress-item py-3" >
@@ -24,7 +24,7 @@
     </div>
     <div class="circle"></div>
     <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
-      <a (click)="downloadInvoice(item.id,item.filename)">{{item.filename}}</a>
+      <a *ngIf="item.id!==undefined" (click)="downloadInvoice(item.id,item.filename)">{{item.filename}}</a>
     </div>
   </div>
 </div>
