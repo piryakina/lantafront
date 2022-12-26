@@ -14,6 +14,7 @@ export class UspComponent implements OnInit {
   }
   rows:IRow[]=[]
   url: string = ""
+  visible:boolean=false
   ngOnInit(): void {
     this.url = this.router.url
     this.apiService.getDataPeriodNow().subscribe((res) => {
@@ -39,6 +40,9 @@ export class UspComponent implements OnInit {
   SetSP(idSp:number){
     console.log(idSp)
     this.storage.store("spId",idSp)
+  }
+  change(){
+    this.visible=!this.visible
   }
 }
 
