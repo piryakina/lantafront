@@ -85,6 +85,8 @@ app-menu{
   margin-left: 2%;
 }
 .circle{
+  margin-right: 0;
+  padding-right: 0;
   margin-left: -1vw;
   height: 1.5vw;
   width: 1.5vw;
