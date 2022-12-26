@@ -85,7 +85,7 @@ app-menu{
   margin-left: 2%;
 }
 .circle{
-display: inline-flex;
+display: flex;
   margin-left: -1vw;
   height: 1.5vw;
   width: 1.5vw;
