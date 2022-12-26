@@ -36,10 +36,14 @@ app-sp{
 }
 .navbar-brand-bottom{
   margin-top:10%;
-  width:40%;
+  width:60%;
   height: 100%;
   float: left;
 }
 .upload-label{
   width: 100%;
+}
+.text-center{
+  float:left;
+  width: 50%;
 }
