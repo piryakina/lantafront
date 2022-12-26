@@ -21,6 +21,7 @@ export class SpComponent  implements  OnInit {
     "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
   ];
   fileusp:string=""
+  fileuspid:number=0
   invoicesfile:IFile[]=[]
   ngOnInit(): void {
 
@@ -51,6 +52,7 @@ export class SpComponent  implements  OnInit {
           for (let i=0;i<res.billing.length;i++){
             // console.log(res.billing[i])
             let temp:IFile={}
+            temp.id=res.billing[i].id
             temp.period=res.period
             temp.filename=res.billing[i].filename
             temp.status=res.billing[i].status
@@ -64,6 +66,7 @@ export class SpComponent  implements  OnInit {
         if (res.invoice!==undefined){
           for (let j=0;j<res.invoice.length;j++){
             let temp:IFile={}
+            temp.id=res.invoice[j].id
             temp.filename=res.invoice[j].filename
             // emp.path=res.invoice[j].path
             this.invoicesfile.push(temp)
@@ -71,6 +74,7 @@ export class SpComponent  implements  OnInit {
         }
         if (res.sla!==undefined){
           this.fileusp=res.sla.filename
+          this.fileuspid=res.sla.id
         }
       }
 
@@ -93,6 +97,70 @@ export class SpComponent  implements  OnInit {
         return 1;
     }
     return 0;
+  }
+  downloadBilling(id: number,filename:string ) {
+    // console.log(i)
+    // const id = this.files[i].id
+    //  const filename = this.files[i].filename
+    // console.log(id)
+    if (id!==null) {
+      this.apiService.downloadFileById(id)
+        .subscribe(result => {
+          console.log(result)
+          let a = document.createElement('a');
+          let objectURL = URL.createObjectURL(result);
+          a.href = objectURL;
+          a.download = filename;
+          a.click();
+          URL.revokeObjectURL(objectURL);
+          alert('Успешно сохранено');
+        }, error => {
+          console.log(error);
+          alert('Произошла ошибка при сохранении');
+        })
+    } else {
+      alert("Файл указан неверно")
+    }
+  }
+  downloadSLA(id: number,filename:string ) {
+    if (id!==null) {
+      this.apiService.downloadSLAById(id)
+        .subscribe(result => {
+          console.log(result)
+          let a = document.createElement('a');
+          let objectURL = URL.createObjectURL(result);
+          a.href = objectURL;
+          a.download = filename;
+          a.click();
+          URL.revokeObjectURL(objectURL);
+          alert('Успешно сохранено');
+        }, error => {
+          console.log(error);
+          alert('Произошла ошибка при сохранении');
+        })
+    } else {
+      alert("Файл указан неверно")
+    }
+  }
+  downloadInvoice(id: number,filename:string ) {
+    if (id!==null) {
+      this.apiService.downloadInvoiceById(id)
+        .subscribe(result => {
+          console.log(result)
+          let a = document.createElement('a');
+          let objectURL = URL.createObjectURL(result);
+          a.href = objectURL;
+          a.download = filename;
+          a.click();
+          URL.revokeObjectURL(objectURL);
+          alert('Успешно сохранено');
+        }, error => {
+          console.log(error);
+          alert('Произошла ошибка при сохранении');
+        })
+    } else {
+      alert("Файл указан неверно")
+    }
   }
 }
 

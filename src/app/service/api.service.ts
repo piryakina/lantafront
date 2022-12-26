@@ -5,7 +5,6 @@ import {IUser} from "../entities/IUser";
 import {IPeriod} from "../entities/IPeriod";
 import {INews} from "../entities/INews";
 import {IComment} from "../entities/IFile";
-import {query} from "@angular/animations";
 
 
 @Injectable({
@@ -81,6 +80,22 @@ export class ApiService {
   }
   downloadFileById(id: number):Observable<Blob>{
     return this.httpClient.get(apiDomen+`/billings/download`, {
+      withCredentials: true,
+      responseType: "blob",
+      params: new HttpParams()
+        .set("id", id)
+    })
+  }
+  downloadSLAById(id: number):Observable<Blob>{
+    return this.httpClient.get(apiDomen+`/usp/sla/download`, {
+      withCredentials: true,
+      responseType: "blob",
+      params: new HttpParams()
+        .set("id", id)
+    })
+  }
+  downloadInvoiceById(id: number):Observable<Blob>{
+    return this.httpClient.get(apiDomen+`/invoice/download`, {
       withCredentials: true,
       responseType: "blob",
       params: new HttpParams()

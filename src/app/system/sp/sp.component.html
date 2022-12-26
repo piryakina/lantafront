@@ -14,17 +14,17 @@
 
 <div id="table">
   <div class="progress-icon">
-    <div class="navbar-brand "><div class="circle"></div> Загруженные биллинги</div>
-    <div id="billing" class="progress-item py-3" *ngFor="let item of files">
-      <a>{{item.filename}}</a> - <a>{{item.status}}</a>
+    <div class="circle"></div>
+    <div id="billing" class="progress-item py-3" *ngFor="let item of files;let i=index">
+      <a (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
     </div>
-    <div><div class="circle"></div> Согласование SLA</div>
+    <div class="circle"></div>
     <div id="uspfile" class="progress-item py-3" >
-      <a>{{fileusp}}</a>
+      <a (click)="downloadSLA(fileuspid,fileusp)">{{fileusp}}</a>
     </div>
-    <div><div class="circle"></div> Загруженные счета</div>
+    <div class="circle"></div>
     <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
-      <a>{{item.filename}}</a>
+      <a (click)="downloadInvoice(item.id,item.filename)">{{item.filename}}</a>
     </div>
   </div>
 </div>
