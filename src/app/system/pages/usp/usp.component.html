@@ -32,9 +32,11 @@
       </ng-template>
       <a class="change" (click)="change()"><small>изменить</small></a>
       <ng-container *ngIf="visible;then Hide else Show"></ng-container>
-      <ng-template #Hide></ng-template>
-      <ng-template #Show>
+      <ng-template #Hide>
         <app-uploader *ngIf="item.id!==undefined" (click)="SetSP(item.id)" id="sla1"></app-uploader>
+
+      </ng-template>
+      <ng-template #Show>
       </ng-template>
     </td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
     <td>
