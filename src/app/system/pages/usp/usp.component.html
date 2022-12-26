@@ -28,7 +28,7 @@
       <ng-container *ngIf="item.sla!==undefined;then Exist else Non"></ng-container>
       <ng-template #Exist>{{item.sla}}</ng-template>
       <ng-template #Non>
-        <app-uploader *ngIf="item.id!==undefined" (focus)="SetSP(item.id)" id="sla"></app-uploader>
+        <app-uploader *ngIf="item.id!==undefined" (click)="SetSP(item.id)" id="sla"></app-uploader>
       </ng-template>
     </td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
     <!--    <td>{{item.status}}</td>-->
