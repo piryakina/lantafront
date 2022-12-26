@@ -6,6 +6,33 @@
     <ng-template #Name><div class="navbar-br"><span class="navbar-brand m-5 h1 fw-bold fs-4">{{name}}</span></div></ng-template>
     <ng-template #Null><div class="navbar-br"><span class="navbar-brand m-5 h1 fw-bold fs-4"></span></div></ng-template>
   </div>
+  <div>
+    <div *ngIf="visible" class="upload-label">
+      <p class="h4 px-5 py-3">Загрузка файлов по отчётному периоду возможна с 15 по 25 {{month}}</p>
+      <div *ngIf="url==='/sp/billing'" class="first">
+        <label class="label fs-4 fw-bold px-5 py-3">Загрузить биллинги</label>
+        <app-uploader id="billing1"></app-uploader>
+      </div>
+      <div *ngIf="url==='/sp/invoice'" class="first">
+        <label class="label fs-4 fw-bold px-5 py-3">Загрузить счета</label>
+        <app-uploader id="invoice1"></app-uploader>
+      </div>
+      <div *ngIf="url==='/sp'" id="all">
+        <div class="link">
+          <a routerLink="/sp/billing"><span class="label fs-4 fw-bold px-5 py-3">Загрузить биллинги</span></a>
+        </div>
+        <div id="link">
+          <a routerLink="/sp/invoice">
+            <span class="label fs-4 fw-bold px-5 py-3">Загрузить счета</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!visible" class="upload-label"><p class="h4 px-5 py-3">Загрузку файлов по отчетному периоду вы сможете
+      начать с 15 {{month}}</p></div>
+
+  </div>
   <div class="progress-sp">
     <app-sp></app-sp>
   </div>

@@ -16,11 +16,6 @@ export class SpComponent implements OnInit {
   files: IFile[] = []
   status: string[] = []
   url: string = ""
-  visible: boolean = false;
-  month: string = ""
-  monthNames = ["Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
-    "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
-  ];
   fileusp: string = ""
   fileuspid: number = 0
   agreed: boolean | null = null
@@ -29,14 +24,7 @@ export class SpComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let today = new Date()
-    // console.log(today.getMonth()+1, today.getDate())
-    // this.month=today.getMonth().toString()
-    const d = new Date();
-    this.month = this.monthNames[d.getMonth()]
-    // console.log(this.month)
-    this.visible = today.getDate() >= 15;
-    this.url = this.router.url
+
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((res) => {
       // console.log(res)
