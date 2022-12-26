@@ -91,3 +91,6 @@ app-menu{
   border-radius: 50%;
   background-color: #2A6879;
 }
+a{
+  cursor: pointer;
+}

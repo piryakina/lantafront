@@ -15,7 +15,7 @@
 <div id="table">
   <div class="progress-icon">
     <div class="circle"></div>
-    <div id="billing" class="progress-item py-3" *ngFor="let item of files;let i=index">
+    <div id="billing" class="progress-item py-3" *ngFor="let item of files">
       <a *ngIf="item.id!==undefined && item.filename!==undefined" (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
     </div>
     <div class="circle"></div>
