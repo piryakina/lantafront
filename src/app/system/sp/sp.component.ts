@@ -24,6 +24,7 @@ export class SpComponent implements OnInit {
   fileusp: string = ""
   fileuspid: number = 0
   agreed: boolean | null = null
+  none:boolean=false
   invoicesfile: IFile[] = []
 
   ngOnInit(): void {
@@ -49,7 +50,7 @@ export class SpComponent implements OnInit {
       console.log(err)
     })
     this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res) => {
-      // console.log(res)
+      this.none=true
       if (res !== null) {
         if (res.billing !== undefined) {
           for (let i = 0; i < res.billing.length; i++) {
@@ -84,7 +85,8 @@ export class SpComponent implements OnInit {
 
       // this.files.sort(compare())
     }, (err) => {
-      console.error(err)
+      console.log(err)
+      this.none=false
     })
     // for (let i=0;i<this.files.length;i++){
     //   console.log(this.files[i].status)

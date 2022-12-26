@@ -13,57 +13,63 @@
 <!--</div>-->
 
 <div id="table">
-  <div class="progress-icon">
-    <div class="circle"></div>
-    <span class="navbar-brand m-5 h1 fw-bold fs-4">Биллинги</span>
-    <div id="billing" class="progress-item py-3" *ngFor="let item of files">
-      <a *ngIf="item.id!==undefined && item.filename!==undefined"
-         (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
-    </div>
-    <div class="circle"></div>
-    <span class="navbar-brand m-5 h1 fw-bold fs-4">Согласование SLA</span>
-    <div id="uspfile" class="progress-item py-3">
-      <a (click)="downloadSLA(fileuspid,fileusp)">{{fileusp}}</a>
-      <br>
-      <ng-container *ngIf="agreed==null;then Null else Some"></ng-container>
-      <ng-template #Some>
-        <ng-container *ngIf="agreed;then Yes else No"></ng-container>
-        <ng-template #Yes>
-          <span class="navbar-brand h1 fw-bold fs-6">Согласовано</span>
+  <ng-container *ngIf="none==true;then Full else None"></ng-container>
+  <ng-template #Full>
+    <div class="progress-icon">
+      <div class="circle"></div>
+      <span class="navbar-brand m-5 h1 fw-bold fs-4">Биллинги</span>
+      <div id="billing" class="progress-item py-3" *ngFor="let item of files">
+        <a *ngIf="item.id!==undefined && item.filename!==undefined"
+           (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
+      </div>
+      <div class="circle"></div>
+      <span class="navbar-brand m-5 h1 fw-bold fs-4">Согласование SLA</span>
+      <div id="uspfile" class="progress-item py-3">
+        <a (click)="downloadSLA(fileuspid,fileusp)">{{fileusp}}</a>
+        <br>
+        <ng-container *ngIf="agreed==null;then Null else Some"></ng-container>
+        <ng-template #Some>
+          <ng-container *ngIf="agreed;then Yes else No"></ng-container>
+          <ng-template #Yes>
+            <span class="navbar-brand h1 fw-bold fs-6">Согласовано</span>
+          </ng-template>
+          <ng-template #No>
+            <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>
+          </ng-template>
         </ng-template>
-        <ng-template #No>
-          <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>
+        <ng-template #Null>
+          <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
+          <div>
+            <form>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                <label class="form-check-label" for="gridRadios1">
+                  Да
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Нет
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
+            </form>
+          </div>
         </ng-template>
-      </ng-template>
-      <ng-template #Null>
-        <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
-        <div>
-          <form>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
-              <label class="form-check-label" for="gridRadios1">
-                Да
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-              <label class="form-check-label" for="gridRadios2">
-                Нет
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
-          </form>
-        </div>
-      </ng-template>
 
+      </div>
+      <div class="circle"></div>
+      <span class="navbar-brand m-5 h1 fw-bold fs-4">Счета</span>
+      <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
+        <a *ngIf="item.id!==undefined && item.filename!==undefined"
+           (click)="downloadInvoice(item.id,item.filename)">{{item.filename}}</a>
+      </div>
     </div>
-    <div class="circle"></div>
-    <span class="navbar-brand m-5 h1 fw-bold fs-4">Счета</span>
-    <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
-      <a *ngIf="item.id!==undefined && item.filename!==undefined"
-         (click)="downloadInvoice(item.id,item.filename)">{{item.filename}}</a>
-    </div>
-  </div>
+  </ng-template>
+<ng-template #None>
+  <div class="progress-icon"></div>
+</ng-template>
 
 </div>
 <!--  <div class="progress">-->
