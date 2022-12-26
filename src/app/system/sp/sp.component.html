@@ -38,7 +38,7 @@
           </ng-template>
         </ng-template>
         <ng-template #Null>
-          <ng-container *ngIf="fileusp!='';then Ask else No"></ng-container>
+          <ng-container *ngIf="fileusp.length!==0;then Ask else No"></ng-container>
           <ng-template #Ask>
             <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
             <div>
