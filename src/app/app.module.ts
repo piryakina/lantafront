@@ -24,7 +24,6 @@ import { AdminPageComponent } from './system/pages/admin-page/admin-page.compone
 import { AddPeriodComponent } from './system/admin/add-period/add-period.component';
 import { UspComponent } from './system/pages/usp/usp.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

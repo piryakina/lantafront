@@ -35,6 +35,7 @@ app-uploader{
 /*}*/
 .upload-label{
   float: left;
+  width: 60%;
   padding-left: 3%;
   margin-top: 3%;
 }
