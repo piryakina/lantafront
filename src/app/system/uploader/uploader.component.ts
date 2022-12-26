@@ -97,7 +97,7 @@ export class UploaderComponent implements OnInit {
         }, ()=>{
           alert("ошибка!")
         })
-      } else if (this.url === "/usp/sla"){
+      } else if (this.url === "/usp"){
         this.apiService.uploadFileSLA(data).subscribe((res)=>{
           alert("файлы успешно загружены")
           window.location.href = "http://sp.lantaservice.com:4200/usp" //todo

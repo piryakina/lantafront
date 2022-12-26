@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"news", component: HomePageComponent},
   {path:"news/:id",component:HomePageComponent},
   {path:"usp", component: UspPageComponent},
-  {path:"usp/sla", component: UspPageComponent},
+  // {path:"usp/sla", component: UspPageComponent},
   {path:"analytic", component: AnalyticPageComponent},
   {path:"sp", component: SpPageComponent},
   {path:"sp/billing", component: SpPageComponent},
