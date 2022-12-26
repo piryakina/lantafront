@@ -30,7 +30,7 @@
       <ng-template #Non>
         <app-uploader *ngIf="item.id!==undefined" (click)="SetSP(item.id)" id="sla"></app-uploader>
       </ng-template>
-      <a (click)="$event">изменить</a>
+      <a (click)="$event"><small> изменить</small></a>
     </td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
     <td>
       {{item.is_agreed}}
