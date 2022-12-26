@@ -85,7 +85,7 @@ export class SpComponent implements OnInit {
 
       // this.files.sort(compare())
     }, (err) => {
-      console.log(err)
+      // console.log(err)
       this.none=false
     })
     // for (let i=0;i<this.files.length;i++){
