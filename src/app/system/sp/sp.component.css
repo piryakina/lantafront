@@ -83,3 +83,9 @@ app-menu{
   font-size: 20px;
   margin-left: 2%;
 }
+.circle{
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  background-color: #2A6879;
+}
