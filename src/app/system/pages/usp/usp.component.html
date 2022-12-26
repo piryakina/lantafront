@@ -31,6 +31,9 @@
         <app-uploader *ngIf="item.id!==undefined" (click)="SetSP(item.id)" id="sla"></app-uploader>
       </ng-template>
     </td> <!--todo если файла нет то аплоад если файл есть то название файла и скачать -->
+    <td>
+      {{item.is_agreed}}
+    </td>
     <!--    <td>{{item.status}}</td>-->
     <!--    <td id="downloadFile" title="скачать файл" (click)="downloadFile(i)">{{item.filename}}</td>-->
     <!--    <td>-->
