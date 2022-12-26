@@ -14,15 +14,15 @@
 
 <div id="table">
   <div class="progress-icon">
-    <div class="circle"></div>
+    <div><div class="circle"></div> Загруженные биллинги</div>
     <div id="billing" class="progress-item py-3" *ngFor="let item of files">
       <a>{{item.filename}}</a> - <a>{{item.status}}</a>
     </div>
-    <div class="circle"></div>
+    <div><div class="circle"></div> Согласование SLA</div>
     <div id="uspfile" class="progress-item py-3" >
       <a>{{fileusp}}</a>
     </div>
-    <div class="circle"></div>
+    <div><div class="circle"></div> Загруженные счета</div>
     <div id="invoice" class="progress-item py-3" *ngFor="let item of invoicesfile">
       <a>{{item.filename}}</a>
     </div>
