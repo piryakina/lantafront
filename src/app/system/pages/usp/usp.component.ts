@@ -35,6 +35,7 @@ export class UspComponent implements OnInit {
     })
   }
   SetSP(idSp:number){
+    console.log(idSp)
     this.storage.store("spId",idSp)
   }
 }
