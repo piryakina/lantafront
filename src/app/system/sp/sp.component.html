@@ -15,10 +15,7 @@
 <div id="table">
   <div class="progress-icon">
     <div id="billing" class="progress-item py-3" *ngFor="let item of files">
-      <a>{{item.filename}}</a>
-    </div>
-    <div id="status" class="progress-item py-3" *ngFor="let item of files">
-      <a>{{item.status}}</a>
+      <a>{{item.filename}}</a> - <a>{{item.status}}</a>
     </div>
     <div id="uspfile" class="progress-item py-3" >
       <a>{{fileusp}}</a>
