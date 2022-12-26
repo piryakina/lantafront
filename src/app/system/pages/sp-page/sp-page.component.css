@@ -34,3 +34,8 @@ app-sp{
   width: 40%;
   float: left;
 }
+.navbar-brand-bottom{
+  width:60%;
+  height: 100%;
+  float: left;
+}
