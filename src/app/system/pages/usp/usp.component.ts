@@ -27,7 +27,8 @@ export class UspComponent implements OnInit {
             temp.sp = res[i].sp
             temp.period = res[i].period
             temp.sla =res[i].sla.filename
-          temp.is_agreed=res[i].sla.is_agreed
+            temp.is_agreed=res[i].sla.is_agreed
+
           this.rows.push(temp)
         }
       }
