@@ -32,10 +32,7 @@ export class UspComponent implements OnInit {
               temp.is_agreed="согласовано"
             } else if (res[i].is_agreed===false){
               temp.is_agreed="не согласовано"
-            } else {
-              temp.is_agreed=" "
             }
-
           this.rows.push(temp)
         }
       }
@@ -44,7 +41,7 @@ export class UspComponent implements OnInit {
     })
   }
   SetSP(idSp:number){
-    console.log(idSp)
+    // console.log(idSp)
     this.storage.store("spId",idSp)
   }
   change(){
