@@ -30,8 +30,10 @@ export class UspComponent implements OnInit {
             temp.sla =res[i].sla.filename
             if (res[i].sla.is_agreed){
               temp.is_agreed="согласовано"
-            } else {
+            } else if (res[i].is_agreed===false){
               temp.is_agreed="не согласовано"
+            } else {
+              temp.is_agreed=" "
             }
 
           this.rows.push(temp)
