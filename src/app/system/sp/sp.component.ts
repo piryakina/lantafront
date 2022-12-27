@@ -168,7 +168,9 @@ export class SpComponent implements OnInit {
     this.apiService.setApprove(idFile, this.choosed).subscribe(res => {
       if (res.status) {
         alert("статус успешно изменен")
+        window.location.reload()
       }
+
     }, err => {
       alert("ошибка")
       console.log(err)
