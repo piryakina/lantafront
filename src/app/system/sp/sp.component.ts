@@ -23,6 +23,7 @@ export class SpComponent implements OnInit {
   invoicesfile: IFile[] = []
   choosed: boolean = false
   visible:boolean=false
+  editFile:boolean=false
   ngOnInit(): void {
 
 
@@ -182,7 +183,20 @@ export class SpComponent implements OnInit {
   }
   changeApprove(){
     this.visible=!this.visible
-    console.log(this.visible)
+    // console.log(this.visible)
+  }
+  changeFile(){
+    this.editFile=!this.editFile
+    console.log(this.editFile)
+  }
+  SetBillingId(id:number){
+    this.storage.store("billing",id)
+
+    this.window.location.href="sp/billing"
+  }
+  SetInvoiceId(id:number){
+    this.storage.store("invoice",id)
+    this.window.location.href="sp/invoice"
   }
 }
 

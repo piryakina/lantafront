@@ -20,8 +20,15 @@
       <span class="navbar-brand m-5 h1 fw-bold fs-4">Биллинги</span>
       <div id="billing" class="progress-item py-3" *ngFor="let item of files">
         <a *ngIf="item.id!==undefined && item.filename!==undefined"
-           (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
+           (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> <a class="change" (click)="changeFile()"><img src="././assets/edit-button.svg" class="edit"></a> - <a>{{item.status}}</a>
            <p *ngIf="item.comm!==undefined">( {{item.comm}} )</p>
+            <ng-container *ngIf="editFile;then UpdFile else UpdNo"></ng-container>
+      <ng-template #UpdFile>
+        <app-uploader *ngIf="item.id!==undefined" (click)="SetBillingId(item.id)" id="sla1"></app-uploader>
+
+      </ng-template>
+      <ng-template #UpdNo>
+      </ng-template>
       </div>
       <div class="circle"></div>
       <span class="navbar-brand m-5 h1 fw-bold fs-4">Согласование SLA</span>
