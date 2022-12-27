@@ -33,6 +33,7 @@ app-sp{
 .progress-sp{
   width: 40%;
   float: left;
+  height: 100%;
 }
 .navbar-brand-bottom{
   margin-top:10%;
