@@ -33,11 +33,13 @@
           <ng-container *ngIf="agreed;then Yes else No"></ng-container>
           <ng-template #Yes>
             <span class="navbar-brand h1 fw-bold fs-6">Согласовано</span>
-            <a class="change"><small>изменить</small></a>
+            <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
+            <ng-container *ngIf="visible;then Ask else Hide"></ng-container>
+            <ng-template #Hide></ng-template>
           </ng-template>
           <ng-template #No>
             <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>
-            <a class="change" ><small>изменить</small></a>
+            <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
           </ng-template>
         </ng-template>
         <ng-template #Null>

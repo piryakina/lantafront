@@ -22,7 +22,7 @@ export class SpComponent implements OnInit {
   none: boolean = false
   invoicesfile: IFile[] = []
   choosed: boolean = false
-
+  visible:boolean=false
   ngOnInit(): void {
 
 
@@ -178,8 +178,8 @@ export class SpComponent implements OnInit {
   changeChoosed(value:boolean) {
     this.choosed = value
   }
-  changeSLAStatus(){
-
+  changeApprove(){
+    this.visible=!this.visible
   }
 }
 
