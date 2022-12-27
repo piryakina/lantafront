@@ -29,6 +29,7 @@ app-menu{
 }
 app-sp{
   float: left;
+  height: 100%;
 }
 .progress-sp{
   width: 40%;
