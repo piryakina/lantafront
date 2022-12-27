@@ -16,7 +16,8 @@ export interface IRow{
   date?:string,
   comment?:string,
   sla?:string
-  is_agreed?:string
+  is_agreed?:string,
+  visible?: boolean
 }
 export interface IStatus{
   id?:number,

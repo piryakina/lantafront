@@ -26,13 +26,13 @@
     <td>{{item.period}}</td>
     <td>
       <ng-container *ngIf="item.sla!==undefined;then Exist else Non"></ng-container>
-      <ng-template #Exist>{{item.sla}} 
-      <a class="change" (click)="change()"><img src="././assets/edit-button.svg" class="edit"></a>
+      <ng-template #Exist>{{item.sla}}
+      <a class="change" (click)="change(i)"><img src="././assets/edit-button.svg" class="edit"></a>
       </ng-template>
       <ng-template #Non>
         <app-uploader *ngIf="item.id!==undefined" (click)="SetSP(item.id)" id="sla"></app-uploader>
       </ng-template>
-      <ng-container *ngIf="visible;then Hide else Show"></ng-container>
+      <ng-container *ngIf="item.visible;then Hide else Show"></ng-container>
       <ng-template #Hide>
         <app-uploader *ngIf="item.id!==undefined" (click)="SetSP(item.id)" id="sla1"></app-uploader>
 
