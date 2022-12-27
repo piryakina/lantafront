@@ -192,11 +192,11 @@ export class SpComponent implements OnInit {
   SetBillingId(id:number){
     this.storage.store("billing",id)
 
-    this.window.location.href="sp/billing"
+    window.location.href="sp/billing"
   }
   SetInvoiceId(id:number){
     this.storage.store("invoice",id)
-    this.window.location.href="sp/invoice"
+    window.location.href="sp/invoice"
   }
 }
 
