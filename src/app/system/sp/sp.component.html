@@ -34,7 +34,27 @@
           <ng-template #Yes>
             <span class="navbar-brand h1 fw-bold fs-6">Согласовано</span>
             <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
-            <ng-container *ngIf="visible;then Ask else Hide"></ng-container>
+            <ng-container *ngIf="visible;then Show else Hide"></ng-container>
+            <ng-template #Show>
+              <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
+            <div>
+              <form>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="true" (click)="changeChoosed(true)">
+                  <label class="form-check-label" for="gridRadios1">
+                    Да
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="false" (click)="changeChoosed(false)">
+                  <label class="form-check-label" for="gridRadios2">
+                    Нет
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
+              </form>
+            </div>
+            </ng-template>
             <ng-template #Hide></ng-template>
           </ng-template>
           <ng-template #No>
