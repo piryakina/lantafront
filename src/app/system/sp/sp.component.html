@@ -34,7 +34,7 @@
           <ng-template #Yes>
             <span class="navbar-brand h1 fw-bold fs-6">Согласовано</span>
             <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
-            <ng-container *ngIf="visible;then Show else Hide"></ng-container>
+            <ng-container *ngIf="visible;then Show else Hide">
             <ng-template #Show>
               <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
             <div>
@@ -56,6 +56,7 @@
             </div>
             </ng-template>
             <ng-template #Hide></ng-template>
+            </ng-container>
           </ng-template>
           <ng-template #No>
             <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>
