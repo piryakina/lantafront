@@ -21,7 +21,7 @@
       <div id="billing" class="progress-item py-3" *ngFor="let item of files">
         <a *ngIf="item.id!==undefined && item.filename!==undefined"
            (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> - <a>{{item.status}}</a>
-           <p>( {{item.comm}} )</p>
+           <p *ngIf="item.comm!==undefined">( {{item.comm}} )</p>
       </div>
       <div class="circle"></div>
       <span class="navbar-brand m-5 h1 fw-bold fs-4">Согласование SLA</span>
