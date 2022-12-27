@@ -95,6 +95,9 @@ app-menu{
 a{
   cursor: pointer;
 }
+a:hover{
+  text-decoration: underline;
+}
 .edit{
   width:1.5vw;
   height: 1.5vw;
