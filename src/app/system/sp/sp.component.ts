@@ -180,6 +180,7 @@ export class SpComponent implements OnInit {
   }
   changeApprove(){
     this.visible=!this.visible
+    console.log(this.visible)
   }
 }
 
