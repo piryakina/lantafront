@@ -34,6 +34,7 @@
           <ng-template #Yes>
             <span class="navbar-brand h1 fw-bold fs-6">Согласовано </span>
             <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
+            <br>
             <ng-container *ngIf="visible;then Show else Hide"></ng-container>
             <ng-template #Show>
               <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
@@ -60,6 +61,7 @@
           <ng-template #No>
             <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>
             <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
+            <br>
             <ng-container *ngIf="visible;then Show1 else Hide1"></ng-container>
             <ng-template #Show1>
               <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
