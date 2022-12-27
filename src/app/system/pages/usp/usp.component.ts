@@ -28,7 +28,11 @@ export class UspComponent implements OnInit {
             temp.sp = res[i].sp
             temp.period = res[i].period
             temp.sla =res[i].sla.filename
-            temp.is_agreed=res[i].sla.is_agreed
+            if (res[i].sla.is_agreed){
+              temp.is_agreed="согласовано"
+            } else {
+              temp.is_agreed="не согласовано"
+            }
 
           this.rows.push(temp)
         }
