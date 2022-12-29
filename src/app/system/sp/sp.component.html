@@ -18,11 +18,12 @@
     <div class="progress-icon">
       <div class="circle"></div>
       <span class="navbar-brand m-5 h1 fw-bold fs-4">Биллинги</span>
-      <div id="billing" class="progress-item py-3" *ngFor="let item of files">
+      <div id="billing" class="progress-item py-3" *ngFor="let item of files; let i = index">
         <a *ngIf="item.id!==undefined && item.filename!==undefined"
-           (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a> <a class="change" (click)="changeFile()"><img src="././assets/edit-button.svg" class="edit"></a> - <a>{{item.status}}</a>
+           (click)="downloadBilling(item.id, item.filename)">{{item.filename}}</a>
+        <a class="change" [hidden]="item.approved" (click)="changeFile(i)"><img src="././assets/edit-button.svg" class="edit"></a> - <a>{{item.status}}</a>
            <p *ngIf="item.comm!==undefined">( {{item.comm}} )</p>
-            <ng-container *ngIf="editFile;then UpdFile else UpdNo"></ng-container>
+            <ng-container *ngIf="item.updateVisible;then UpdFile else UpdNo"></ng-container>
       <ng-template #UpdFile>
         <app-uploader *ngIf="item.id!==undefined" (click)="SetBillingId(item.id)" id="sla1"></app-uploader>
 
@@ -40,30 +41,30 @@
           <ng-container *ngIf="agreed;then Yes else No"></ng-container>
           <ng-template #Yes>
             <span class="navbar-brand h1 fw-bold fs-6">Согласовано </span>
-            <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>
-            <br>
-            <ng-container *ngIf="visible;then Show else Hide"></ng-container>
-            <ng-template #Show>
-              <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>
-            <div>
-              <form>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="true" (click)="changeChoosed(true)">
-                  <label class="form-check-label" for="gridRadios1">
-                    Да
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="false" (click)="changeChoosed(false)">
-                  <label class="form-check-label" for="gridRadios2">
-                    Нет
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>
-              </form>
-            </div>
-            </ng-template>
-            <ng-template #Hide></ng-template>
+<!--            <a class="change" (click)="changeApprove()"><img src="././assets/edit-button.svg" class="edit"></a>-->
+<!--            <br>-->
+<!--            <ng-container *ngIf="visible;then Show else Hide"></ng-container>-->
+<!--            <ng-template #Show>-->
+<!--              <span class="navbar-brand h1 fw-bold fs-6">Согласовать?</span>-->
+<!--            <div>-->
+<!--              <form>-->
+<!--                <div class="form-check">-->
+<!--                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="true" (click)="changeChoosed(true)">-->
+<!--                  <label class="form-check-label" for="gridRadios1">-->
+<!--                    Да-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="form-check">-->
+<!--                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="false" (click)="changeChoosed(false)">-->
+<!--                  <label class="form-check-label" for="gridRadios2">-->
+<!--                    Нет-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <button type="submit" class="btn btn-primary" (click)="approveSla(fileuspid)">Отправить</button>-->
+<!--              </form>-->
+<!--            </div>-->
+<!--            </ng-template>-->
+<!--            <ng-template #Hide></ng-template>-->
           </ng-template>
           <ng-template #No>
             <span class="navbar-brand h1 fw-bold fs-6">Не согласовано</span>

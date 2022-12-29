@@ -23,8 +23,12 @@ export class SpComponent implements OnInit {
   invoicesfile: IFile[] = []
   choosed: boolean = false
   visible:boolean=false
-  editFile:boolean=false
+  editFile:boolean=false//'2022-12-17T21:00:00.000Z'
+  IS_AVAILABLE_TO_UPDATE: boolean = ((new Date().getDate() >= 15 && new Date().getDate() <= 25))
   ngOnInit(): void {
+    if (!this.IS_AVAILABLE_TO_UPDATE){
+      alert("Период не активен. Изменение файлов невозможно")
+    }
 
 
     // console.log(this.url)
@@ -52,6 +56,10 @@ export class SpComponent implements OnInit {
             temp.status = res.billing[i].status
             temp.date = res.billing[i].date
             temp.comm = res.billing[i].comments
+            temp.approved =
+              (temp.status==='проверен в отделе аналитики' || temp.status==='на проверке в отделе аналитики')
+              || !this.IS_AVAILABLE_TO_UPDATE
+            temp.updateVisible = false
             this.files.push(temp)
             // console.log(res.billing[i].status)
 
@@ -185,9 +193,14 @@ export class SpComponent implements OnInit {
     this.visible=!this.visible
     // console.log(this.visible)
   }
-  changeFile(){
-    this.editFile=!this.editFile
-    console.log(this.editFile)
+  changeFile(i:number){
+    console.log(this.files[i].approved)
+    if (!this.files[i].approved){
+      this.files[i].updateVisible = !this.files[i].updateVisible
+    }
+    //console.log(`after: ${this.files[i].updateVisible}`)
+    // this.editFile=!this.editFile
+    // console.log(this.editFile)
   }
   SetBillingId(id:number){
     this.storage.store("billing",id)

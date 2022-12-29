@@ -4,7 +4,9 @@ export interface IFile{
   status?: string,
   period?:string,
   comm?: string
-  date?:string
+  date?:string,
+  approved?: boolean,
+  updateVisible?:boolean
 }
 export interface IRow{
   id?:number,
