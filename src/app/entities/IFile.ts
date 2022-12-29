@@ -18,6 +18,7 @@ export interface IRow{
   sla?:string
   is_agreed?:string,
   visible?: boolean
+  invoices?:string[]
 }
 export interface IStatus{
   id?:number,
