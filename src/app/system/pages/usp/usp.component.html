@@ -53,26 +53,10 @@
     <!--    </td>-->
     <td>
       <ng-container  *ngFor="let it of invoices">
-        <a>{{it}}</a><br>
+        <a (click)="SaveInvoice()">{{it}}</a><br>
       </ng-container>
     </td>
     <td>оплата через 30 календарных дней после получения документов по ЭДО или оригиналов </td>
   </tr>
-  <!--    <tr>-->
-  <!--      <th scope="row">2</th>-->
-  <!--      <td>Jacob</td>-->
-  <!--      <td>Thornton</td>-->
-  <!--      <td>@fat</td>-->
-  <!--      <td>Thornton</td>-->
-  <!--      <td>@fat</td>-->
-  <!--    </tr>-->
-  <!--    <tr>-->
-  <!--      <th scope="row">3</th>-->
-  <!--      <td>Larry</td>-->
-  <!--      <td>the Bird</td>-->
-  <!--      <td>@twitter</td>-->
-  <!--      <td>Thornton</td>-->
-  <!--      <td>@fat</td>-->
-  <!--    </tr>-->
   </tbody>
 </table>

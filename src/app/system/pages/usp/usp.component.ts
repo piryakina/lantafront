@@ -64,5 +64,8 @@ export class UspComponent implements OnInit {
     this.rows[i].visible = !this.rows[i].visible
     //this.visible=!this.visible
   }
+  SaveInvoice(){
+
+  }
 }
 
