@@ -13,6 +13,8 @@
     <th scope="col">Период</th>
     <th scope="col">Загрузить файл</th>
     <th scope="col">Согласовано</th>
+    <th scope="col">Счёт</th>
+    <th scope="col">Дата оплаты</th>
   </tr>
   </thead>
   <tbody>
@@ -49,6 +51,12 @@
     <!--      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="item.comment" (blur)="SetComment(i)"-->
     <!--                placeholder="Введите замечания"></textarea>-->
     <!--    </td>-->
+    <td>
+      <ng-container  *ngFor="let it of invoices">
+        <a>{{it}}</a><br>
+      </ng-container>
+    </td>
+    <td>оплата через 30 календарных дней после получения документов по ЭДО или оригиналов </td>
   </tr>
   <!--    <tr>-->
   <!--      <th scope="row">2</th>-->

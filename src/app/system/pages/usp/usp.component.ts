@@ -13,7 +13,7 @@ export class UspComponent implements OnInit {
   rows: IRow[] = []
   url: string = ""
   visible: boolean = false
-
+  invoices:string[] = []
   constructor(private router: Router, private apiService: ApiService, private storage: LocalStorageService) {
   }
 
@@ -25,6 +25,7 @@ export class UspComponent implements OnInit {
       // console.log(this.statuses)
       if (res !== null) {
         for (let i = 0; i < res.length; i++) {
+
           let temp: IRow = {}
           temp.id = res[i].id
           temp.sp = res[i].sp
@@ -35,7 +36,17 @@ export class UspComponent implements OnInit {
             temp.is_agreed = "согласовано"
           } else if (res[i].is_agreed === false) {
             temp.is_agreed = "не согласовано"
+          } else {
+            temp.is_agreed = "нет данных"
           }
+          if (res[i].invoice !== undefined) {
+            for (let j = 0; j < res[i].invoice.length; j++) {
+              temp.filename=res[i].invoice[j].filename
+              this.invoices.push(res[i].invoice[j].filename)
+              console.log(temp.filename)
+            }
+          }
+          console.log(temp.is_agreed)
           this.rows.push(temp)
         }
       }
