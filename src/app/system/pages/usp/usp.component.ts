@@ -68,6 +68,12 @@ export class UspComponent implements OnInit {
   SaveInvoice(i:number){
     this.apiService.downloadInvoiceById(i).subscribe((res)=>{
       console.log(res)
+      let a = document.createElement('a');
+          let objectURL = URL.createObjectURL(res);
+          a.href = objectURL;
+          a.download = filename;
+          a.click();
+          URL.revokeObjectURL(objectURL);
     }, (err)=>{
       console.log(err)
     })
