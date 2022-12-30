@@ -69,7 +69,7 @@ export class UspComponent implements OnInit {
     this.apiService.downloadSLAById(i).subscribe((res)=>{
       console.log(res)
     }, (err)=>{
-      console.log(error)
+      console.log(err)
     })
 
   }
