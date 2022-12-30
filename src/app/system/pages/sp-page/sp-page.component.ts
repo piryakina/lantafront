@@ -26,6 +26,7 @@ export class SpPageComponent implements OnInit{
     if (today.getDate()>=1 && today.getDate()<=14){
       this.month = this.monthNames[today.getMonth()]
     } else if (today.getDate()>=25){
+      console.log(today.getMonth()+1)
       this.month = this.monthNames[today.getMonth()+1]
     }
     console.log(this.month)
