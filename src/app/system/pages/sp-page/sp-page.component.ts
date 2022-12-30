@@ -25,7 +25,7 @@ export class SpPageComponent implements OnInit{
     const d = new Date();
     this.month = this.monthNames[d.getMonth()]
     // console.log(this.month)
-    this.visible = today.getDate() >= 15;
+    this.visible = today.getDate() >= 15 && today.getDate()<=25;
     this.url = this.router.url
     // console.log(this.storage.retrieve("login"))
     // this.apiService.getQualityAndProcess(this.storage.retrieve("login")).subscribe((res)=>{
