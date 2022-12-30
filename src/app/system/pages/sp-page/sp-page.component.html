@@ -28,8 +28,14 @@
         </div>
       </div>
 
-      <div *ngIf="!visible" class="upload-label"><p class="h4 px-5 py-3">Загрузку файлов по отчетному периоду <br> вы сможете
-        начать с 15 {{month}}</p></div>
+      <div *ngIf="!visible" class="upload-label"><p class="h4 px-5 py-3">Загрузку биллингов по отчетному периоду <br> вы сможете
+        начать с 15 {{month}}</p>
+      <div id="link">
+            <a routerLink="/sp/invoice">
+              <span class="label fs-4 fw-bold px-5 py-3">Загрузить счета</span>
+            </a>
+          </div>
+        </div>
 
     </div>
 
