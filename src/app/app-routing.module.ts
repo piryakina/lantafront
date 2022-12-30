@@ -11,6 +11,7 @@ import {AdminPageComponent} from "./system/pages/admin-page/admin-page.component
 import {AddUserComponent} from "./system/admin/add-user/add-user.component";
 import {AddPeriodComponent} from "./system/admin/add-period/add-period.component";
 import {AddNewsComponent} from "./system/admin/add-news/add-news.component";
+import { AppGuard }   from './app.guard';
 
 const routes: Routes = [
   {path:"login", component: LoginPageComponent},
