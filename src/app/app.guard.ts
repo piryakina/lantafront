@@ -6,7 +6,7 @@ export class AppGuard implements CanActivate{
    
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | boolean{
         let storage:LocalStorageService
-        if (this.storage.retrieve("id")!==undefined){
+        if (storage.retrieve("id")!==undefined){
             return true
         } else {
             window.location.href="/"
