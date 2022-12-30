@@ -65,7 +65,7 @@ export class UspComponent implements OnInit {
     this.rows[i].visible = !this.rows[i].visible
     //this.visible=!this.visible
   }
-  SaveInvoice(i:number, filename:string){
+  SaveInvoice(i:number, filename:string | undefined){
     this.apiService.downloadInvoiceById(i).subscribe((res)=>{
       console.log(res)
       let a = document.createElement('a');
