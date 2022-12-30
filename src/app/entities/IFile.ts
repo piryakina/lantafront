@@ -32,6 +32,6 @@ export interface IComment{
 }
 
 export interface ISla{
-  id?:number,
+  id:number,
   filename?:string
 }
