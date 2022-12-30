@@ -9,7 +9,7 @@ export class AppGuard implements CanActivate{
     constructor(private storage: LocalStorageService) {}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean{
         console.log(this.storage.retrieve("id"))
-        if (this.storage.retrieve("id")!==undefined){
+        if (this.storage.retrieve("id")!==null){
 
             return true
         } else {
