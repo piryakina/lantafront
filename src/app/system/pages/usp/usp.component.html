@@ -11,7 +11,7 @@
   <tr>
     <th scope="col">Название СП</th>
     <th scope="col">Период</th>
-    <th scope="col">Загрузить файл</th>
+    <th scope="col">Загрузить файл SLA</th>
     <th scope="col">Согласовано</th>
     <th scope="col">Счёт</th>
     <th scope="col">Дата оплаты</th>
@@ -53,7 +53,7 @@
     <!--    </td>-->
     <td>
       <ng-container  *ngFor="let it of invoices">
-        <a (click)="SaveInvoice()">{{it}}</a><br>
+        <a (click)="SaveInvoice(it.id)">{{it.filename}}</a><br>
       </ng-container>
     </td>
     <td>оплата через 30 календарных дней после получения документов по ЭДО или оригиналов </td>

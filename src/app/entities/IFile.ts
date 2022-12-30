@@ -30,3 +30,8 @@ export interface IComment{
   id?:number,
   comments?:string
 }
+
+export interface ISla{
+  id?:number,
+  filename?:string
+}

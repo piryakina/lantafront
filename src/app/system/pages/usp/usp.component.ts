@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {IRow} from "../../../entities/IFile";
+import {IRow, ISla} from "../../../entities/IFile";
 import {ApiService} from "../../../service/api.service";
 import {LocalStorageService} from "ngx-webstorage";
 
@@ -13,7 +13,7 @@ export class UspComponent implements OnInit {
   rows: IRow[] = []
   url: string = ""
   visible: boolean = false
-  invoices:string[] = []
+  invoices:ISla[] = []
   constructor(private router: Router, private apiService: ApiService, private storage: LocalStorageService) {
   }
 
@@ -41,9 +41,10 @@ export class UspComponent implements OnInit {
           }
           if (res[i].invoice !== undefined) {
             for (let j = 0; j < res[i].invoice.length; j++) {
-              temp.filename=res[i].invoice[j].filename
-              this.invoices.push(res[i].invoice[j].filename)
-              console.log(temp.filename)
+              let item:ISla={}
+              item.filename=res[i].invoice[j].filename
+              item.id=res[i].invoice[j].id
+              this.invoices.push(item)
             }
           }
           console.log(temp.is_agreed)
@@ -64,7 +65,12 @@ export class UspComponent implements OnInit {
     this.rows[i].visible = !this.rows[i].visible
     //this.visible=!this.visible
   }
-  SaveInvoice(){
+  SaveInvoice(i:number){
+    this.apiService.downloadSLAById(i).subscribe((res)=>{
+      console.log(res)
+    }, (err)=>{
+      console.log(error)
+    })
 
   }
 }
