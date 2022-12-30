@@ -27,3 +27,7 @@ th,td,tr,table {
   width:1.5vw;
   height: 1.5vw;
 }
+a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
