@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {LocalStorageService} from "ngx-webstorage";
  
 export class AppGuard implements CanActivate{
-    constructor(private storage:LocalStorageService)
+    constructor(private storage:LocalStorageService){}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | boolean{
         if (this.storage.retrieve("id")!==undefined){
             return true
