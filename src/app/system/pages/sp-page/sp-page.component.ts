@@ -22,13 +22,13 @@ export class SpPageComponent implements OnInit{
     let today = new Date()
     // console.log(today.getMonth()+1, today.getDate())
     // this.month=today.getMonth().toString()
-
+    console.log(today.getDate())
     if (today.getDate()>=1 && today.getDate()<=14){
       this.month = this.monthNames[today.getMonth()]
     } else if (today.getDate()>=25){
       this.month = this.monthNames[today.getMonth()+1]
     }
-    // console.log(this.month)
+    console.log(this.month)
 
     this.visible = today.getDate() >= 15 && today.getDate()<=25;
     this.url = this.router.url
