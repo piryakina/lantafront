@@ -53,7 +53,7 @@
     <!--    </td>-->
     <td>
       <ng-container  *ngFor="let it of invoices">
-        <a (click)="SaveInvoice(it.id)">{{it.filename}}</a><br>
+        <a *ngIf="it.id!=undefined" (click)="SaveInvoice(it.id)">{{it.filename}}</a><br>
       </ng-container>
     </td>
     <td>оплата через 30 календарных дней после получения документов по ЭДО или оригиналов </td>
