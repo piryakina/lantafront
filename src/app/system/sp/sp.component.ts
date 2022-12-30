@@ -77,7 +77,9 @@ export class SpComponent implements OnInit {
           this.agreed = res.sla.is_agreed
         }
       }
-
+ if (!this.IS_AVAILABLE_TO_UPDATE){
+      alert("Период не активен. Изменение файлов невозможно")
+    }
       // this.files.sort(compare())
     }, (err) => {
       // console.log(err)
@@ -90,9 +92,7 @@ export class SpComponent implements OnInit {
     //   }
     // }
     // console.log(this.fileusp)
-    if (!this.IS_AVAILABLE_TO_UPDATE){
-      alert("Период не активен. Изменение файлов невозможно")
-    }
+   
 
   }
 
