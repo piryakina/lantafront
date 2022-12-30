@@ -24,6 +24,7 @@ import { AdminPageComponent } from './system/pages/admin-page/admin-page.compone
 import { AddPeriodComponent } from './system/admin/add-period/add-period.component';
 import { UspComponent } from './system/pages/usp/usp.component';
 import { EditNewsComponent } from './system/admin/edit-news/edit-news.component';
+import { AppGuard }   from './app.guard';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { EditNewsComponent } from './system/admin/edit-news/edit-news.component'
     FormsModule,
     NgxWebstorageModule.forRoot(),
   ],
-  providers: [ApiService],
+  providers: [ApiService, AppGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

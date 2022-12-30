@@ -14,18 +14,18 @@ import {AddNewsComponent} from "./system/admin/add-news/add-news.component";
 
 const routes: Routes = [
   {path:"login", component: LoginPageComponent},
-  {path:"news", component: HomePageComponent},
-  {path:"news/:id",component:HomePageComponent},
-  {path:"usp", component: UspPageComponent},
+  {path:"news", component: HomePageComponent, canActivate :[AppGuard]},
+  {path:"news/:id",component:HomePageComponent, canActivate :[AppGuard]},
+  {path:"usp", component: UspPageComponent, canActivate :[AppGuard]},
   // {path:"usp/sla", component: UspPageComponent},
-  {path:"analytic", component: AnalyticPageComponent},
-  {path:"sp", component: SpPageComponent},
-  {path:"sp/billing", component: SpPageComponent},
-  {path:"sp/invoice", component: SpPageComponent},
-  {path:"admin", component: AdminPageComponent},
-  {path:"admin/add-user", component: AddUserComponent},
-  {path:"admin/add-period", component: AddPeriodComponent},
-  {path:"admin/add-news", component: AddNewsComponent},
+  {path:"analytic", component: AnalyticPageComponent, canActivate :[AppGuard]},
+  {path:"sp", component: SpPageComponent, canActivate :[AppGuard]},
+  {path:"sp/billing", component: SpPageComponent, canActivate :[AppGuard]},
+  {path:"sp/invoice", component: SpPageComponent, canActivate :[AppGuard]},
+  {path:"admin", component: AdminPageComponent, canActivate :[AppGuard]},
+  {path:"admin/add-user", component: AddUserComponent, canActivate :[AppGuard]},
+  {path:"admin/add-period", component: AddPeriodComponent, canActivate :[AppGuard]},
+  {path:"admin/add-news", component: AddNewsComponent, canActivate :[AppGuard]},
   {path:"**", component: HomePageComponent}
 ];
 
