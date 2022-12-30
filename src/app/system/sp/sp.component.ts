@@ -26,10 +26,7 @@ export class SpComponent implements OnInit {
   editFile:boolean=false//'2022-12-17T21:00:00.000Z'
   IS_AVAILABLE_TO_UPDATE: boolean = ((new Date().getDate() >= 15 && new Date().getDate() <= 25))
   ngOnInit(): void {
-    if (!this.IS_AVAILABLE_TO_UPDATE){
-      alert("Период не активен. Изменение файлов невозможно")
-    }
-
+    
 
     // console.log(this.url)
     this.apiService.getStatuses().subscribe((res) => {
@@ -93,6 +90,10 @@ export class SpComponent implements OnInit {
     //   }
     // }
     // console.log(this.fileusp)
+    if (!this.IS_AVAILABLE_TO_UPDATE){
+      alert("Период не активен. Изменение файлов невозможно")
+    }
+
   }
 
   compare(object1: IFile, object2: IFile) {
