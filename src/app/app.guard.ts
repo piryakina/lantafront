@@ -6,11 +6,9 @@ import {Injectable, Inject} from '@angular/core';
  
  @Injectable()
 export class AppGuard implements CanActivate{
-    constructor(
-    @Inject(LocalStorageService) private auth: localstorage
-  ) {}
+    constructor(private storage: LocalStorageService) {}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean{
-        if (localstorage.retrieve("id")!==undefined){
+        if (this.storage.retrieve("id")!==undefined){
             return true
         } else {
             window.location.href="/"
